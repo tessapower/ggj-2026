@@ -23,6 +23,10 @@ window/size/window_height_override=540
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
+[autoload]
+
+MaskManager="*uid://da2dsjul6wqpp"
+
 [input]
 
 up={
