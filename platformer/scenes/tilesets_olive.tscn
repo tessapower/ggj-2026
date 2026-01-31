@@ -37,4 +37,27 @@ position = Vector2(133, 140)
 
 [node name="Redmask" parent="." unique_id=1542614794 instance=ExtResource("7_k3o2w")]
 position = Vector2(409, 183)
-scale = Vector2(0.124185, -0.125742)
+scale = Vector2(0.12418532, -0.1257418)
+
+[node name="Red Tint" type="ColorRect" parent="." unique_id=1256245023]
+visible = false
+z_index = 4
+material = SubResource("CanvasItemMaterial_q3kph")
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0.89411765, 0.45882353, 0.49803922, 1)
+
+[node name="Green Tint" type="ColorRect" parent="." unique_id=497826079]
+visible = false
+z_index = 4
+material = SubResource("CanvasItemMaterial_q3kph")
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0.6, 0.8980392, 0.3137255, 1)
+
+[node name="Blue Tint" type="ColorRect" parent="." unique_id=584144834]
+z_index = 4
+material = SubResource("CanvasItemMaterial_q3kph")
+offset_right = 480.0
+offset_bottom = 270.0
+color = Color(0.3882353, 0.6156863, 0.8862745, 1)
