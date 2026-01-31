@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cvdqwf1iena3f" path="res://scenes/player/walking.gd" id="4_75vfm"]
 [ext_resource type="Script" uid="uid://cwwplm58suixx" path="res://scenes/player/jumping.gd" id="5_0owmy"]
 [ext_resource type="Script" uid="uid://do588qbhxbexg" path="res://scenes/player/falling.gd" id="6_qek5x"]
+[ext_resource type="Script" uid="uid://c0g26w42ttdui" path="res://scenes/player/switch_mask_component.gd" id="7_0owmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
 size = Vector2(15, 15)
@@ -42,3 +43,6 @@ player = NodePath("../..")
 sprite = NodePath("../../Sprite2D")
 walking_state = NodePath("../Walking")
 jumping_state = NodePath("../Jumping")
+
+[node name="SwitchMaskComponent" type="Node" parent="." unique_id=835505593]
+script = ExtResource("7_0owmy")
