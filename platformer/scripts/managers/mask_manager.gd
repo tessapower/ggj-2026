@@ -29,3 +29,9 @@ func on_is_green_on_changed(new_value: bool):
 		return
 	is_green_on = new_value
 	mask_changed.emit()
+
+
+func reset_masks() -> void:
+	is_red_on = false
+	is_blue_on = false
+	is_green_on = false
