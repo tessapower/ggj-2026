@@ -14,6 +14,10 @@ config/name="platformer"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MaskManager="*uid://da2dsjul6wqpp"
+
 [display]
 
 window/size/viewport_width=480
@@ -22,10 +26,6 @@ window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
-
-[autoload]
-
-MaskManager="*uid://da2dsjul6wqpp"
 
 [input]
 
