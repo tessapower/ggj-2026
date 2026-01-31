@@ -2,36 +2,38 @@ extends Node
 
 signal mask_changed()
 
-var is_red_on: bool: set = on_is_red_on_changed
-var is_blue_on: bool: set = on_is_blue_on_changed
-var is_green_on: bool: set = on_is_green_on_changed
+var is_red_on: bool:
+	get:
+		return current_color == MASK_COLOR.RED
+var is_blue_on: bool:
+	get:
+		return current_color == MASK_COLOR.BLUE
+var is_green_on: bool:
+	get:
+		return current_color == MASK_COLOR.GREEN
 
-# It's a lot of duplication, I know! But I thought that's better
-# than trying to be too clever.
-# TODO: Offer some way to flip multiple mask settings so mask_changed is only emitted once for the batch?
+enum MASK_COLOR {
+	NONE,
+	RED,
+	BLUE,
+	GREEN,
+}
 
-func on_is_red_on_changed(new_value: bool):
-	if is_red_on == new_value:
+var current_color: MASK_COLOR: set = _on_current_color_changed
+
+func _on_current_color_changed(new_value):
+	if current_color == new_value:
 		return
-	is_red_on = new_value
-	mask_changed.emit()
-
-
-func on_is_blue_on_changed(new_value: bool):
-	if is_blue_on == new_value:
-		return
-	is_blue_on = new_value
-	mask_changed.emit()
-
-
-func on_is_green_on_changed(new_value: bool):
-	if is_green_on == new_value:
-		return
-	is_green_on = new_value
+	current_color = new_value
 	mask_changed.emit()
 
 
 func reset_masks() -> void:
-	is_red_on = false
-	is_blue_on = false
-	is_green_on = false
+	current_color = MASK_COLOR.NONE
+
+
+func toggle(color: MASK_COLOR) -> void:
+	if color == current_color:
+		current_color = MASK_COLOR.NONE
+	else:
+		current_color = color

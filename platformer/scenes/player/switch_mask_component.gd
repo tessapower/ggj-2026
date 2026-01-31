@@ -4,8 +4,8 @@ extends Node
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&'toggle_red'):
-		MaskManager.is_red_on = !MaskManager.is_red_on
+		MaskManager.toggle(MaskManager.MASK_COLOR.RED)
 	if event.is_action_pressed(&'toggle_blue'):
-		MaskManager.is_blue_on = !MaskManager.is_blue_on
+		MaskManager.toggle(MaskManager.MASK_COLOR.BLUE)
 	if event.is_action_pressed(&'toggle_green'):
-		MaskManager.is_green_on = !MaskManager.is_green_on
+		MaskManager.toggle(MaskManager.MASK_COLOR.GREEN)
