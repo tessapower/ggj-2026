@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://do588qbhxbexg" path="res://scenes/player/falling.gd" id="6_qek5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
-size = Vector2(128, 128)
+size = Vector2(15, 15)
 
 [node name="Player" type="CharacterBody2D" unique_id=2139937865]
 script = ExtResource("1_dovo2")
@@ -17,6 +17,8 @@ script = ExtResource("1_dovo2")
 shape = SubResource("RectangleShape2D_lvxji")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1250952821]
+position = Vector2(0, 2.9802322e-08)
+scale = Vector2(0.12500003, 0.11718753)
 texture = ExtResource("2_gmlin")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1475615927 node_paths=PackedStringArray("initial_state")]
