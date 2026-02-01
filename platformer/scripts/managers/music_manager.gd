@@ -1,6 +1,4 @@
-extends Node
-
-var t = load("res://assets/music/main_level/main_level_audio_stream.tres")
+class_name MusicManager extends Node
 
 const mute_db := -80.0
 const default_music_db := 0.0
@@ -20,8 +18,8 @@ func _ready() -> void:
 
 	# TEST
 	"""
-	fade_music_in(t)
-	crossfade_sync_stream([0,1,2,3])
+	fade_music_in(t) - starts with 0
+	crossfade_sync_stream([0,1,2,3]) - 1=red, 2=green, 3=blue, call with [0,1] for red, etc.
 	var timer:SceneTreeTimer = get_tree().create_timer(10.0)  
 	timer.timeout.connect(func(): crossfade_sync_stream([0,1]))  
 	var timer2:SceneTreeTimer = get_tree().create_timer(20.0)  
