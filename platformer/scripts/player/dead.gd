@@ -4,6 +4,9 @@ extends State
 @export var spawning_state: State
 @export var sprite: AnimatedSprite2D
 
+var death_sound = load('res://assets/sfx/death_1.wav')
+
+
 func _ready() -> void:
 	if !player:
 		push_error('I need a player to work!')
@@ -15,6 +18,7 @@ func _ready() -> void:
 
 func enter() -> void:
 	sprite.play(&'Die')
+	SoundManager.play_music(death_sound)
 	
 	
 func process(_delta) -> State:

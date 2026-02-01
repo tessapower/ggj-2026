@@ -5,6 +5,8 @@ extends State
 @export var sprite: AnimatedSprite2D
 
 
+var spawn_sound = load('res://assets/sfx/spawn_1.wav')
+
 func _ready() -> void:
 	if !player:
 		push_error('I need a player to work!')
@@ -25,6 +27,7 @@ func enter() -> void:
 	player.global_position = player.spawn_point
 	player.visible = true
 	sprite.play(&'Spawn')
+	SoundManager.play_sound(spawn_sound)
 	
 
 func process(_delta) -> State:

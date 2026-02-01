@@ -15,11 +15,16 @@ signal jumped
 
 var jump_velocity: float = 0
 var normal_gravity: float = 0
+var jump_sound = load('res://assets/sfx/jump_1.wav')
 
 
 func _ready():
 	normal_gravity = (2 * jump_height) / (time_to_jump_apex ** 2)
 	jump_velocity = -normal_gravity * time_to_jump_apex
+
+
+func enter() -> void:
+	SoundManager.play_sound(jump_sound)
 
 
 func physics_process(_delta) -> State:
