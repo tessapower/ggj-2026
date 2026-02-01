@@ -52,7 +52,7 @@ _data = {
 &"move": SubResource("Animation_3qdq8")
 }
 
-[node name="BlueMovablePlatform" type="Node2D" unique_id=598591550 groups=["green_things"]]
+[node name="BlueMovablePlatform" type="Node2D" unique_id=598591550 groups=["blue_things"]]
 script = ExtResource("1_w05fm")
 layer_value = 3
 
