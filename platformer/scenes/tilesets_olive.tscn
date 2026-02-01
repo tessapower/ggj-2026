@@ -5,8 +5,8 @@
 [ext_resource type="TileSet" uid="uid://dch1canegh3yt" path="res://resources/green_tileset.tres" id="1_q3kph"]
 [ext_resource type="TileSet" uid="uid://cxmagoltdlixw" path="res://resources/blue_tileset.tres" id="2_nrq0k"]
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="5_c7npj"]
-[ext_resource type="TileSet" uid="uid://31uv7267uwx8" path="res://resources/red_tileset.tres" id="5_pms8s"]
-[ext_resource type="PackedScene" uid="uid://bcxhqalctwb8g" path="res://scenes/masks/redmask.tscn" id="7_k3o2w"]
+[ext_resource type="PackedScene" uid="uid://byix7vy5uya3o" path="res://scenes/deathzone_scene.tscn" id="7_k3o2w"]
+[ext_resource type="PackedScene" uid="uid://cutmlppckah7o" path="res://scenes/checkpoint_scene.tscn" id="8_nrq0k"]
 
 [node name="TilesetsOlive" type="Node2D" unique_id=851539027]
 
@@ -34,6 +34,7 @@ script = ExtResource("1_n8ebf")
 
 [node name="Player" parent="." unique_id=328626954 instance=ExtResource("5_c7npj")]
 position = Vector2(133, 140)
+input_pickable = true
 
 [node name="Checkpoint" parent="." unique_id=611933622 instance=ExtResource("7_k3o2w")]
 position = Vector2(409, 183)
@@ -61,3 +62,13 @@ material = SubResource("CanvasItemMaterial_q3kph")
 offset_right = 480.0
 offset_bottom = 270.0
 color = Color(0.3882353, 0.6156863, 0.8862745, 1)
+[node name="Deathzone" parent="." unique_id=315066947 instance=ExtResource("7_k3o2w")]
+position = Vector2(97, 329)
+scale = Vector2(0.32, 0.120000005)
+
+[node name="Checkpoint" parent="." unique_id=1991199475 instance=ExtResource("8_nrq0k")]
+position = Vector2(392, 179)
+scale = Vector2(0.16000003, 0.16000003)
+
+[connection signal="input_event" from="Player" to="Checkpoint" method="_on_player_input_event"]
+[connection signal="body_entered" from="Deathzone" to="Deathzone" method="_on_body_entered"]
