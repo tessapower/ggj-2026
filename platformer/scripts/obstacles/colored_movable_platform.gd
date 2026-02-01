@@ -9,12 +9,12 @@ extends Node2D
 
 
 func mask_color_activate() -> void:
-	activated_sprite.visible = true
-	deactivated_sprite.visible = false
-	animatable_body_2d.set_collision_layer_value(layer_value, true)
-
-
-func mask_color_deactivate() -> void:
 	activated_sprite.visible = false
 	deactivated_sprite.visible = true
 	animatable_body_2d.set_collision_layer_value(layer_value, false)
+
+
+func mask_color_deactivate() -> void:
+	activated_sprite.visible = true
+	deactivated_sprite.visible = false
+	animatable_body_2d.set_collision_layer_value(layer_value, true)
