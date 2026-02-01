@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="1_g7g4h"]
 [ext_resource type="Texture2D" uid="uid://bqjwrbgnbf5tn" path="res://icon.svg" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://du35lq3f83y68" path="res://scenes/test_scene.gd" id="1_nd71p"]
+[ext_resource type="PackedScene" uid="uid://cd7rte7frd8pn" path="res://scenes/obstacles/movable_platform.tscn" id="4_7ddre"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a5oyu"]
 
@@ -44,7 +45,11 @@ position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_nd71p")
 
 [node name="Player" parent="." unique_id=2139937865 instance=ExtResource("1_g7g4h")]
-position = Vector2(1, -32)
+position = Vector2(7, -8)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1209560296]
 zoom = Vector2(4, 4)
+metadata/_edit_lock_ = true
+
+[node name="MovablePlatform" parent="." unique_id=598591550 instance=ExtResource("4_7ddre")]
+position = Vector2(8, -29)
