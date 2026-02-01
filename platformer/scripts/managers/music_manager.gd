@@ -13,11 +13,11 @@ var current_music_player : AudioStreamPlayer
 
 @onready var audio_stream_01 : AudioStreamPlayer = $AudioStreamPlayer1
 @onready var audio_stream_02 : AudioStreamPlayer = $AudioStreamPlayer2
- 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_music_player = audio_stream_01
-	
+
 	# TEST
 	"""
 	fade_music_in(t)
@@ -29,7 +29,7 @@ func _ready() -> void:
 	var lpf_timer:SceneTreeTimer = get_tree().create_timer(10.0)  
 	lpf_timer.timeout.connect(func(): low_pass_sweep(40, 5))
 	"""
-	
+
 func fade_music_in(track: AudioStream, fade_time=track_fade_time) -> void:
 	current_music_player.stream = track
 	current_music_player.volume_db = mute_db
@@ -46,12 +46,13 @@ func fade_music_in(track: AudioStream, fade_time=track_fade_time) -> void:
 
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(current_music_player, "volume_db", default_music_db, fade_time)
-	
+
 
 func fade_music_out(fade_time=track_fade_time) -> void:
 	var tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(current_music_player, "volume_db", mute_db, fade_time)
-	
+
+
 func crossfade_music_to(track: AudioStream) -> void:
 	fade_music_out() # Fade out first player
 	
@@ -59,7 +60,8 @@ func crossfade_music_to(track: AudioStream) -> void:
 	current_music_player = audio_stream_01 if current_music_player == audio_stream_02 else audio_stream_02
 	
 	fade_music_in(track) # Fade in second player
-	
+
+
 func crossfade_sync_stream(active_tracks: Array[int]):
 	# Fail silently if not playing synchronized tracks
 	if (current_music_player.stream is not AudioStreamSynchronized):
@@ -89,7 +91,8 @@ func crossfade_sync_stream(active_tracks: Array[int]):
 				)
 		
 		track.set_sync_stream_volume(i, mute_db)
-		
+
+
 func low_pass_sweep(end_freq, time, resonance=0.7):
 	var lpf = AudioServer.get_bus_effect(1, 0)
 	
@@ -100,7 +103,7 @@ func low_pass_sweep(end_freq, time, resonance=0.7):
 		resonance,
 		lpf_resonance_time
 	)
-		
+
 	var ease = Tween.EASE_IN if lpf.cutoff_hz < end_freq else Tween.EASE_OUT
 	var freq_tween = create_tween().set_ease(ease).set_trans(Tween.TRANS_EXPO)
 	freq_tween.tween_property(
@@ -108,9 +111,3 @@ func low_pass_sweep(end_freq, time, resonance=0.7):
 		end_freq,
 		time
 	)
-
- 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
