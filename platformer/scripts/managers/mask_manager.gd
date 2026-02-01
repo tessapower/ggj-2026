@@ -2,6 +2,7 @@ extends Node
 
 signal mask_changed()
 
+
 var is_red_on: bool:
 	get:
 		return current_color == MASK_COLOR.RED
@@ -36,6 +37,7 @@ func _get_function_for_color(color: MASK_COLOR) -> StringName:
 		return &'mask_color_activate'
 	else:
 		return &'mask_color_deactivate'
+
 
 func reset_masks() -> void:
 	current_color = MASK_COLOR.NONE
