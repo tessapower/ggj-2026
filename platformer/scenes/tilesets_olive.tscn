@@ -39,7 +39,6 @@ input_pickable = true
 
 [node name="Checkpoint" parent="." unique_id=611933622 instance=ExtResource("7_k3o2w")]
 position = Vector2(409, 183)
-scale = Vector2(0.12418532, -0.1257418)
 
 [node name="Goal" parent="." unique_id=100752822 instance=ExtResource("9_pms8s")]
 position = Vector2(68, 142)
