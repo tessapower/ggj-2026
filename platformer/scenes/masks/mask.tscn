@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bcxhqalctwb8g"]
+
+[ext_resource type="Texture2D" uid="uid://bqjwrbgnbf5tn" path="res://icon.svg" id="1_k8ebt"]
+[ext_resource type="Script" uid="uid://b1ptcj31dtdaa" path="res://scripts/player/mask.gd" id="1_qiq6h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjxvi"]
+size = Vector2(117, 119)
+
+[node name="Mask" type="Area2D" unique_id=160487098]
+collision_mask = 16
+script = ExtResource("1_qiq6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=710769399]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_tjxvi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1914163345]
+texture = ExtResource("1_k8ebt")
+
+[connection signal="body_entered" from="." to="." method="_on_mask_pickup"]
