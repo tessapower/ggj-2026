@@ -6,6 +6,7 @@ extends State
 
 @export_subgroup("Nodes")
 @export var player: Player
+@export var sprite: AnimatedSprite2D
 
 @export_subgroup("States")
 @export var falling_state: State
@@ -13,7 +14,6 @@ extends State
 
 func enter() -> void:
 	player.has_double_jumped = false
-
 
 func physics_process(delta) -> State:
 	# Gravity.
@@ -24,6 +24,20 @@ func physics_process(delta) -> State:
 		player.velocity.x = direction * groundSpeed
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, groundSpeed)
+
+	var not_landing = sprite.animation != "Land"
+	var stopped_landing = sprite.animation == "Land" and is_zero_approx(sprite.frame_progress - 1.0)
+
+	if not_landing or stopped_landing:
+		if is_zero_approx(player.velocity.x):
+			sprite.play("Idle")
+		else:
+			sprite.play("Walk")
+
+	if player.velocity.x < 0:
+		sprite.flip_h = true
+	elif player.velocity.x > 0:
+		sprite.flip_h = false
 
 	if Input.is_action_just_pressed("jump") and player.is_on_floor():
 		return jumping_state

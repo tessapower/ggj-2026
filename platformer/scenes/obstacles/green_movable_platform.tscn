@@ -1,13 +1,18 @@
-[gd_scene format=3 uid="uid://cd7rte7frd8pn"]
+[gd_scene format=3 uid="uid://coox1yjiy4jp0"]
 
-[ext_resource type="Texture2D" uid="uid://by0kwkr2vthu4" path="res://assets/graphics/terrain/black_tileset.png" id="1_kqpny"]
+[ext_resource type="Script" uid="uid://d1a1cvguvrjg" path="res://scripts/obstacles/colored_movable_platform.gd" id="1_gme3c"]
+[ext_resource type="Texture2D" uid="uid://bbycria6lfncd" path="res://assets/graphics/terrain/green_tileset.png" id="2_gme3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqpny"]
 size = Vector2(45, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8tsi"]
-atlas = ExtResource("1_kqpny")
+atlas = ExtResource("2_gme3c")
 region = Rect2(15, 45, 45, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdact"]
+atlas = ExtResource("2_gme3c")
+region = Rect2(15, 105, 45, 15)
 
 [sub_resource type="Animation" id="Animation_q8tsi"]
 length = 0.001
@@ -47,15 +52,23 @@ _data = {
 &"move": SubResource("Animation_3qdq8")
 }
 
-[node name="MovablePlatform" type="Node2D" unique_id=598591550]
+[node name="GreenMovablePlatform" type="Node2D" unique_id=598591550 groups=["green_things"]]
+script = ExtResource("1_gme3c")
+layer_value = 4
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1904008499]
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1985189495]
 shape = SubResource("RectangleShape2D_kqpny")
 
-[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=48293561]
+[node name="ActivatedSprite" type="Sprite2D" parent="AnimatableBody2D" unique_id=48293561]
 texture = SubResource("AtlasTexture_q8tsi")
+
+[node name="DeactivatedSprite" type="Sprite2D" parent="AnimatableBody2D" unique_id=49415659]
+visible = false
+texture = SubResource("AtlasTexture_gdact")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=359361571]
 libraries/ = SubResource("AnimationLibrary_r012x")
