@@ -7,4 +7,4 @@ func _ready() -> void:
 	pass
 
 func _body_entered(body: Node2D) -> void:
-	body.change_respawnpoint(position)
+	body.change_respawn_point(position)
