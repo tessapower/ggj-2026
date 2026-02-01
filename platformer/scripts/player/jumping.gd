@@ -15,7 +15,7 @@ signal jumped
 
 var jump_velocity: float = 0
 var normal_gravity: float = 0
-var jump_sound = load('res://assets/sfx/jump_1.wav')
+var jump_sound = load('res://assets/sfx/jump_stream_randomizer.tres')
 
 
 func _ready():
@@ -24,7 +24,7 @@ func _ready():
 
 
 func enter() -> void:
-	SoundManager.play_sound(jump_sound)
+	SoundManager.play_sound(jump_sound, "SFX")
 
 
 func physics_process(_delta) -> State:

@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://br6n5aaxtojy7"]
+
+[ext_resource type="AudioStream" uid="uid://ofita66w6xvp" path="res://assets/sfx/death_2.wav" id="1_qchy3"]
+
+[resource]
+random_pitch = 1.0270455
+streams_count = 1
+stream_0/stream = ExtResource("1_qchy3")
