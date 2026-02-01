@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="5_c7npj"]
 [ext_resource type="PackedScene" uid="uid://byix7vy5uya3o" path="res://scenes/deathzone_scene.tscn" id="7_k3o2w"]
 [ext_resource type="PackedScene" uid="uid://cutmlppckah7o" path="res://scenes/checkpoint_scene.tscn" id="8_nrq0k"]
+[ext_resource type="PackedScene" uid="uid://dywb7hfusk16f" path="res://scenes/goal_scene.tscn" id="9_pms8s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydll7"]
 texture = ExtResource("1_7ducc")
@@ -2703,11 +2704,13 @@ scale = Vector2(0.32, 0.120000005)
 position = Vector2(392, 179)
 scale = Vector2(0.16000003, 0.16000003)
 
-[connection signal="input_event" from="Player" to="Checkpoint" method="_on_player_input_event"]
-[connection signal="body_entered" from="Deathzone" to="Deathzone" method="_on_body_entered"]
 [node name="Redmask" parent="." unique_id=611933622 instance=ExtResource("7_k3o2w")]
 position = Vector2(409, 183)
 scale = Vector2(0.12418532, -0.1257418)
+
+[node name="Goal" parent="." unique_id=100752822 instance=ExtResource("9_pms8s")]
+position = Vector2(68, 142)
+scale = Vector2(0.12000245, 0.120000005)
 
 [node name="Red Tint" type="ColorRect" parent="." unique_id=1256245023]
 visible = false
@@ -2731,3 +2734,6 @@ material = SubResource("CanvasItemMaterial_q3kph")
 offset_right = 480.0
 offset_bottom = 270.0
 color = Color(0.3882353, 0.6156863, 0.8862745, 1)
+
+[connection signal="input_event" from="Player" to="Checkpoint" method="_on_player_input_event"]
+[connection signal="body_entered" from="Deathzone" to="Deathzone" method="_on_body_entered"]
