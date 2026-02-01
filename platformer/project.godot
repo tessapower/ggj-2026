@@ -32,6 +32,12 @@ window/size/window_height_override=540
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
+[global_group]
+
+red_things=""
+green_things=""
+blue_things=""
+
 [input]
 
 up={
