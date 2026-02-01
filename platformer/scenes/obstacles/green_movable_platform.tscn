@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://coox1yjiy4jp0"]
 
-[ext_resource type="Script" uid="uid://7adn6hqftel" path="res://scripts/obstacles/green_movable_platform.gd" id="1_gme3c"]
+[ext_resource type="Script" uid="uid://d1a1cvguvrjg" path="res://scripts/obstacles/colored_movable_platform.gd" id="1_gme3c"]
 [ext_resource type="Texture2D" uid="uid://bbycria6lfncd" path="res://assets/graphics/terrain/green_tileset.png" id="2_gme3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqpny"]
@@ -57,7 +57,7 @@ script = ExtResource("1_gme3c")
 layer_value = 4
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1904008499]
-collision_layer = 2
+collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1985189495]

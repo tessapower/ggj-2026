@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var layer_value: int = 0
+## This is the 1-based layer index! 2 = red, 3 = blue, 4 = green!
+@export var layer_value: int = 1
 
 @onready var animatable_body_2d: AnimatableBody2D = $AnimatableBody2D
 @onready var activated_sprite: Sprite2D = $AnimatableBody2D/ActivatedSprite
