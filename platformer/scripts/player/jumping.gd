@@ -8,6 +8,7 @@ signal jumped
 
 @export_subgroup("Nodes")
 @export var player: Player
+@export var sprite: AnimatedSprite2D
 
 @export_subgroup("States")
 @export var falling_state: State
@@ -25,4 +26,5 @@ func physics_process(_delta) -> State:
 	player.velocity.y = jump_velocity
 	jumped.emit()
 	player.move_and_slide()
+	sprite.play("Jump")
 	return falling_state

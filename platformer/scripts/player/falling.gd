@@ -11,7 +11,7 @@ signal landed
 
 @export_subgroup("Nodes")
 @export var player: Player
-@export var sprite: Sprite2D
+@export var sprite: AnimatedSprite2D
 
 @export_subgroup("States")
 @export var walking_state: State
@@ -25,6 +25,7 @@ var current_gravity: float = 0
 var coyote_time_counter: float = 0
 var is_still_holding_jump: bool = false
 var jump_buffer_counter: float = 0
+var just_started_falling = true
 
 
 func _ready():
@@ -40,17 +41,18 @@ func enter() -> void:
 	is_still_holding_jump = Input.is_action_pressed("jump")
 	current_gravity = normal_gravity
 	jump_buffer_counter = 0
+	just_started_falling = true
 
 
 func exit() -> void:
 	sprite.rotation = 0
 
 
-func process(_delta) -> State:
-	if player.velocity.y != 0:
-		sprite.rotation = sign(player.velocity.x) * (player.velocity.y / 200) * .1
-
-	return null
+#func process(_delta) -> State:
+	#if player.velocity.y != 0:
+		#sprite.rotation = sign(player.velocity.x) * (player.velocity.y / 200) * .1
+#
+	#return null
 
 
 func physics_process(delta) -> State:
@@ -65,6 +67,15 @@ func physics_process(delta) -> State:
 		player.velocity.x = direction * air_speed
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, air_speed)
+
+	if player.velocity.y > 0 and just_started_falling:
+		sprite.play("Fall")
+		just_started_falling = false
+	
+	if player.velocity.x < 0:
+		sprite.flip_h = true
+	elif player.velocity.x > 0:
+		sprite.flip_h = false
 
 	# Jump buffer.
 	if jump_buffer_counter > 0:
@@ -111,6 +122,7 @@ func physics_process(delta) -> State:
 		if jump_buffer_counter > 0:
 			return jumping_state
 		else:
+			sprite.play("Land")
 			return walking_state
 
 	return null
