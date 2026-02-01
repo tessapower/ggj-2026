@@ -16,6 +16,8 @@ signal landed
 @export_subgroup("States")
 @export var walking_state: State
 @export var jumping_state: State
+@export var dead_state: State
+
 
 var jump_velocity: float = 0
 var half_jump_velocity: float = 0
@@ -56,6 +58,9 @@ func exit() -> void:
 
 
 func physics_process(delta) -> State:
+	if player.is_time_to_die:
+		return dead_state
+		
 	var was_on_floor = player.is_on_floor()
 	var old_vel_y = player.velocity.y
 

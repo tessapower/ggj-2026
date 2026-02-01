@@ -5,3 +5,4 @@ var has_double_jumped := false
 #https://github.com/tessapower/ggj-2026
 
 var spawn_point: Vector2
+var is_time_to_die: bool = false

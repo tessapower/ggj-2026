@@ -11,11 +11,14 @@ extends State
 @export_subgroup("States")
 @export var falling_state: State
 @export var jumping_state: State
+@export var dead_state: State
 
 func enter() -> void:
 	player.has_double_jumped = false
 
 func physics_process(delta) -> State:
+	if player.is_time_to_die:
+		return dead_state
 	# Gravity.
 	player.velocity.y += gravity * delta
 
