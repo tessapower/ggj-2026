@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dw8l3skd2w60k" path="res://scripts/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bqjwrbgnbf5tn" path="res://icon.svg" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://ces1l31ocbax6" path="res://scripts/stateMachine/state_machine.gd" id="3_gmlin"]
+
 [ext_resource type="Script" uid="uid://cvdqwf1iena3f" path="res://scripts/player/walking.gd" id="4_75vfm"]
 [ext_resource type="Script" uid="uid://cwwplm58suixx" path="res://scripts/player/jumping.gd" id="5_0owmy"]
 [ext_resource type="Script" uid="uid://do588qbhxbexg" path="res://scripts/player/falling.gd" id="6_qek5x"]
@@ -45,4 +46,5 @@ walking_state = NodePath("../Walking")
 jumping_state = NodePath("../Jumping")
 
 [node name="SwitchMaskComponent" type="Node" parent="." unique_id=1478003977]
+
 script = ExtResource("7_0owmy")
