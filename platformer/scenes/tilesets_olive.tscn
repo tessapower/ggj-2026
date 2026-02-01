@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://byix7vy5uya3o" path="res://scenes/deathzone_scene.tscn" id="7_k3o2w"]
 [ext_resource type="PackedScene" uid="uid://cutmlppckah7o" path="res://scenes/checkpoint_scene.tscn" id="8_nrq0k"]
 [ext_resource type="PackedScene" uid="uid://dywb7hfusk16f" path="res://scenes/goal_scene.tscn" id="9_pms8s"]
+[ext_resource type="PackedScene" uid="uid://cmyjn2pa5c6sy" path="res://scenes/door_scene.tscn" id="10_2x6ev"]
+[ext_resource type="PackedScene" uid="uid://widb2a2aem88" path="res://scenes/key_scene.tscn" id="11_teobg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydll7"]
 texture = ExtResource("1_7ducc")
@@ -2711,6 +2713,14 @@ scale = Vector2(0.12418532, -0.1257418)
 [node name="Goal" parent="." unique_id=100752822 instance=ExtResource("9_pms8s")]
 position = Vector2(68, 142)
 scale = Vector2(0.12000245, 0.120000005)
+
+[node name="Door" parent="." unique_id=1575499718 instance=ExtResource("10_2x6ev")]
+position = Vector2(279, 180)
+scale = Vector2(0.12032503, 0.23508711)
+
+[node name="Key" parent="." unique_id=1234935740 instance=ExtResource("11_teobg")]
+position = Vector2(213, 124)
+scale = Vector2(0.08904923, 0.04759399)
 
 [node name="Red Tint" type="ColorRect" parent="." unique_id=1256245023]
 visible = false

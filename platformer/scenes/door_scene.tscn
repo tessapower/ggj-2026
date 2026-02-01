@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cmyjn2pa5c6sy"]
+
+[ext_resource type="Texture2D" uid="uid://bqjwrbgnbf5tn" path="res://icon.svg" id="1_cis7l"]
+[ext_resource type="Script" uid="uid://dh1e2fq3sfitw" path="res://scripts/door.gd" id="1_y6aps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6aps"]
+size = Vector2(167, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4rin"]
+size = Vector2(128, 129)
+
+[node name="Door" type="Area2D" unique_id=1575499718]
+script = ExtResource("1_y6aps")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1483539233]
+rotation = 1.5822276
+texture = ExtResource("1_cis7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=185138687]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_y6aps")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1077190751]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=946151653]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_d4rin")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
