@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://dr8ioja5inmsv"]
 
 [ext_resource type="Script" uid="uid://dw8l3skd2w60k" path="res://scripts/player/player.gd" id="1_dovo2"]
-[ext_resource type="Script" uid="uid://ces1l31ocbax6" path="res://scripts/stateMachine/state_machine.gd" id="3_gmlin"]
-[ext_resource type="Script" uid="uid://cvdqwf1iena3f" path="res://scripts/player/walking.gd" id="4_75vfm"]
+[ext_resource type="Script" uid="uid://ces1l31ocbax6" path="res://scripts/stateMachine/state_machine.gd" id="2_gmlin"]
+[ext_resource type="Script" uid="uid://cvdqwf1iena3f" path="res://scripts/player/walking.gd" id="3_75vfm"]
 [ext_resource type="Script" uid="uid://ddwgj8o4a5oes" path="res://scripts/player/spawning.gd" id="4_qek5x"]
 [ext_resource type="Script" uid="uid://cwwplm58suixx" path="res://scripts/player/jumping.gd" id="5_0owmy"]
 [ext_resource type="Script" uid="uid://do588qbhxbexg" path="res://scripts/player/falling.gd" id="6_qek5x"]
 [ext_resource type="Texture2D" uid="uid://cs27jnyba0yw2" path="res://assets/graphics/animations/hugh.png" id="7_qek5x"]
 [ext_resource type="Script" uid="uid://bxj4oyxn0cbwf" path="res://scripts/player/dead.gd" id="8_5gtgg"]
-[ext_resource type="Script" uid="uid://u1j3nuaejsp1" path="res://scripts/player/instadeath_component.gd" id="8_qek5x"]
+[ext_resource type="Script" uid="uid://u1j3nuaejsp1" path="res://scripts/player/instadeath_component.gd" id="9_qek5x"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
 size = Vector2(11, 13)
@@ -386,7 +387,7 @@ position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_lvxji")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1475615927 node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_gmlin")
+script = ExtResource("2_gmlin")
 initial_state = NodePath("Spawning")
 
 [node name="Spawning" type="Node" parent="StateMachine" unique_id=2124341355 node_paths=PackedStringArray("player", "walking_state", "sprite")]
@@ -396,7 +397,7 @@ walking_state = NodePath("../Walking")
 sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="Walking" type="Node" parent="StateMachine" unique_id=796255361 node_paths=PackedStringArray("player", "sprite", "falling_state", "jumping_state", "dead_state")]
-script = ExtResource("4_75vfm")
+script = ExtResource("3_75vfm")
 player = NodePath("../..")
 sprite = NodePath("../../AnimatedSprite2D")
 falling_state = NodePath("../Falling")
@@ -433,7 +434,7 @@ offset = Vector2(0.5, 0.5)
 [node name="InstadeathComponent" type="Area2D" parent="." unique_id=1098057151 node_paths=PackedStringArray("player")]
 collision_layer = 0
 collision_mask = 32
-script = ExtResource("8_qek5x")
+script = ExtResource("9_qek5x")
 player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InstadeathComponent" unique_id=640065088]
