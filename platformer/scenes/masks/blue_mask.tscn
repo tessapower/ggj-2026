@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bx8tgitasqr5r"]
 
 [ext_resource type="Texture2D" uid="uid://bkhqhh1hxd8xg" path="res://assets/graphics/animations/blue_pickup.png" id="1_o2by8"]
+[ext_resource type="Script" uid="uid://b1ptcj31dtdaa" path="res://scripts/player/mask.gd" id="1_s2uvk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itvsr"]
 size = Vector2(11, 7)
@@ -41,7 +42,10 @@ animations = [{
 "speed": 3.3
 }]
 
-[node name="RedMask" type="Area2D" unique_id=809340932]
+[node name="BlueMask" type="Area2D" unique_id=809340932]
+collision_mask = 16
+script = ExtResource("1_s2uvk")
+mask_color = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=710769399]
 shape = SubResource("RectangleShape2D_itvsr")
@@ -50,3 +54,5 @@ shape = SubResource("RectangleShape2D_itvsr")
 sprite_frames = SubResource("SpriteFrames_r2t5l")
 autoplay = "default"
 frame_progress = 0.8891487
+
+[connection signal="body_entered" from="." to="." method="_on_mask_pickup"]
