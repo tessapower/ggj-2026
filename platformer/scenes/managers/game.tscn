@@ -11,5 +11,7 @@ script = ExtResource("3_cj72p")
 metadata/_custom_type_script = "uid://ck6orx3a62ecn"
 
 [node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="MusicManager" unique_id=1176515394]
+bus = &"Music"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="MusicManager" unique_id=1425389649]
+bus = &"Music"
