@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cd7rte7frd8pn"]
 
 [ext_resource type="Texture2D" uid="uid://by0kwkr2vthu4" path="res://assets/graphics/terrain/black_tileset.png" id="1_kqpny"]
-[ext_resource type="Script" uid="uid://b2s3n1du5lx30" path="res://scripts/obstacles/movable_platform.gd" id="1_q8tsi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqpny"]
 size = Vector2(45, 15)
@@ -49,7 +48,6 @@ _data = {
 }
 
 [node name="MovablePlatform" type="Node2D" unique_id=598591550]
-script = ExtResource("1_q8tsi")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1904008499]
 
