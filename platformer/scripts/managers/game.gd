@@ -7,12 +7,20 @@ extends Node2D
 var multistream_music = load("res://assets/music/main_level/main_level_audio_stream.tres")
 
 var level_1 = preload('uid://bbvot6xuyplai')
+var level_2 = preload('uid://dmqwm1whvogj4')
 
 
 func _ready() -> void:
 	music_manager.fade_music_in(multistream_music)
 	level_container.add_child(level_1.instantiate())
 	MaskManager.mask_changed.connect(_on_mask_color_changed)
+	GamestateManager.level_complete.connect(_on_level_complete)
+
+
+func _on_level_complete() -> void:
+	var current_level = level_container.get_child(0)
+	level_container.remove_child(current_level)
+	level_container.add_child(level_2.instantiate())
 
 
 func _on_mask_color_changed() -> void:
