@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bcxhqalctwb8g"]
 
+[ext_resource type="Script" uid="uid://b1ptcj31dtdaa" path="res://scripts/player/mask.gd" id="1_pn7sv"]
 [ext_resource type="Texture2D" uid="uid://cfonl7tt7shrl" path="res://assets/graphics/animations/red_pickup.png" id="1_tjxvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itvsr"]
@@ -42,6 +43,9 @@ animations = [{
 }]
 
 [node name="RedMask" type="Area2D" unique_id=809340932]
+collision_mask = 16
+script = ExtResource("1_pn7sv")
+mask_color = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=710769399]
 shape = SubResource("RectangleShape2D_itvsr")
@@ -49,3 +53,5 @@ shape = SubResource("RectangleShape2D_itvsr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=87544026]
 sprite_frames = SubResource("SpriteFrames_r2t5l")
 autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="_on_mask_pickup"]

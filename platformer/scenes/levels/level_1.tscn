@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bbvot6xuyplai"]
 
-[ext_resource type="PackedScene" uid="uid://bcxhqalctwb8g" path="res://scenes/masks/mask.tscn" id="1_6761a"]
+[ext_resource type="PackedScene" uid="uid://bcxhqalctwb8g" path="res://scenes/masks/red_mask.tscn" id="1_6761a"]
 [ext_resource type="TileSet" uid="uid://c3ahxwk4knacy" path="res://resources/black_tileset.tres" id="1_s8va5"]
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="5_6761a"]
 [ext_resource type="Script" uid="uid://corf4nu7yt3bb" path="res://scripts/obstacles/toggle.gd" id="5_sk5k4"]
@@ -8,10 +8,8 @@
 
 [node name="Level1" type="Node2D" unique_id=2052008603]
 
-[node name="Mask" parent="." unique_id=160487098 instance=ExtResource("1_6761a")]
-position = Vector2(403.99994, 233.99998)
-scale = Vector2(0.1, 0.1)
-mask_color = 1
+[node name="RedMask" parent="." unique_id=809340932 instance=ExtResource("1_6761a")]
+position = Vector2(404, 234)
 
 [node name="Black Layer" type="TileMapLayer" parent="." unique_id=70564624]
 z_index = 3

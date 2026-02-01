@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dmqwm1whvogj4"]
 
-[ext_resource type="PackedScene" uid="uid://bcxhqalctwb8g" path="res://scenes/masks/mask.tscn" id="1_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://bx8tgitasqr5r" path="res://scenes/masks/blue_mask.tscn" id="1_ibugp"]
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="5_3p04p"]
 [ext_resource type="Script" uid="uid://corf4nu7yt3bb" path="res://scripts/obstacles/toggle.gd" id="5_qpwj6"]
 [ext_resource type="TileSet" uid="uid://c3ahxwk4knacy" path="res://resources/black_tileset.tres" id="5_qsp8v"]
@@ -9,10 +9,8 @@
 
 [node name="Level2" type="Node2D" unique_id=1565228703]
 
-[node name="Mask" parent="." unique_id=160487098 instance=ExtResource("1_qpwj6")]
-position = Vector2(117, 234)
-scale = Vector2(0.1, 0.1)
-mask_color = 2
+[node name="BlueMask" parent="." unique_id=809340932 instance=ExtResource("1_ibugp")]
+position = Vector2(128, 233)
 
 [node name="Black Layer" type="TileMapLayer" parent="." unique_id=1451301370]
 z_index = 3
@@ -30,7 +28,7 @@ tile_set = ExtResource("7_3p04p")
 script = ExtResource("5_qpwj6")
 
 [node name="Player" parent="." unique_id=1072855347 instance=ExtResource("5_3p04p")]
-position = Vector2(-106, 91)
+position = Vector2(-106, 84)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1202381923]
 zoom = Vector2(2, 2)
