@@ -12,4 +12,4 @@ var is_time_to_die: bool = false
 
 ## change the respawn point
 func change_respawn_point(new_coords):
-	respawn_point = new_coords
+	spawn_point = new_coords
