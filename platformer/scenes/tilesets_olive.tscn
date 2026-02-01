@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bbycria6lfncd" path="res://assets/graphics/terrain/green_tileset.png" id="3_q3kph"]
 [ext_resource type="Texture2D" uid="uid://dcyjch7mjjdoi" path="res://assets/graphics/terrain/red_tileset.png" id="4_c7npj"]
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="5_c7npj"]
-[ext_resource type="PackedScene" uid="uid://bcxhqalctwb8g" path="res://scenes/masks/redmask.tscn" id="7_k3o2w"]
+[ext_resource type="PackedScene" uid="uid://byix7vy5uya3o" path="res://scenes/deathzone_scene.tscn" id="7_k3o2w"]
+[ext_resource type="PackedScene" uid="uid://cutmlppckah7o" path="res://scenes/checkpoint_scene.tscn" id="8_nrq0k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydll7"]
 texture = ExtResource("1_7ducc")
@@ -2687,7 +2688,15 @@ script = ExtResource("1_n8ebf")
 
 [node name="Player" parent="." unique_id=2139937865 instance=ExtResource("5_c7npj")]
 position = Vector2(133, 140)
+input_pickable = true
 
-[node name="Checkpoint" parent="." unique_id=611933622 instance=ExtResource("7_k3o2w")]
-position = Vector2(409, 183)
-scale = Vector2(0.12418532, -0.1257418)
+[node name="Deathzone" parent="." unique_id=315066947 instance=ExtResource("7_k3o2w")]
+position = Vector2(97, 329)
+scale = Vector2(0.32, 0.120000005)
+
+[node name="Checkpoint" parent="." unique_id=1991199475 instance=ExtResource("8_nrq0k")]
+position = Vector2(392, 179)
+scale = Vector2(0.16000003, 0.16000003)
+
+[connection signal="input_event" from="Player" to="Checkpoint" method="_on_player_input_event"]
+[connection signal="body_entered" from="Deathzone" to="Deathzone" method="_on_body_entered"]
