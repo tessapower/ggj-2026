@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr8ioja5inmsv"]
+[gd_scene format=3 uid="uid://dr8ioja5inmsv"]
 
 [ext_resource type="Script" uid="uid://dw8l3skd2w60k" path="res://scripts/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://bqjwrbgnbf5tn" path="res://icon.svg" id="2_gmlin"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://do588qbhxbexg" path="res://scripts/player/falling.gd" id="6_qek5x"]
 [ext_resource type="Script" uid="uid://dud3c6ywv8bij" path="res://scripts/player/switch_mask_component.gd" id="7_0owmy"]
 [ext_resource type="Texture2D" uid="uid://cs27jnyba0yw2" path="res://assets/graphics/animations/hugh.png" id="7_qek5x"]
-
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
 size = Vector2(11, 13)
@@ -373,44 +372,44 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1253675667]
 collision_layer = 16
 collision_mask = 15
 script = ExtResource("1_dovo2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699435062]
 shape = SubResource("RectangleShape2D_lvxji")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1729289760]
 position = Vector2(0, 2.98023e-08)
 scale = Vector2(0.125, 0.117188)
 texture = ExtResource("2_gmlin")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1059291870 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_gmlin")
 initial_state = NodePath("Walking")
 
-[node name="Walking" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "falling_state", "jumping_state")]
+[node name="Walking" type="Node" parent="StateMachine" unique_id=1284749596 node_paths=PackedStringArray("player", "falling_state", "jumping_state")]
 script = ExtResource("4_75vfm")
 player = NodePath("../..")
 sprite = NodePath("../../AnimatedSprite2D")
 falling_state = NodePath("../Falling")
 jumping_state = NodePath("../Jumping")
 
-[node name="Jumping" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "falling_state")]
+[node name="Jumping" type="Node" parent="StateMachine" unique_id=129539937 node_paths=PackedStringArray("player", "falling_state")]
 script = ExtResource("5_0owmy")
 player = NodePath("../..")
 sprite = NodePath("../../AnimatedSprite2D")
 falling_state = NodePath("../Falling")
 
-[node name="Falling" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "sprite", "walking_state", "jumping_state")]
+[node name="Falling" type="Node" parent="StateMachine" unique_id=1645062772 node_paths=PackedStringArray("player", "sprite", "walking_state", "jumping_state")]
 script = ExtResource("6_qek5x")
 player = NodePath("../..")
 sprite = NodePath("../../AnimatedSprite2D")
 walking_state = NodePath("../Walking")
 jumping_state = NodePath("../Jumping")
 
-[node name="SwitchMaskComponent" type="Node" parent="."]
+[node name="SwitchMaskComponent" type="Node" parent="." unique_id=2088094837]
 script = ExtResource("7_0owmy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=672243726]
