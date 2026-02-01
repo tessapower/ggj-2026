@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bx8tgitasqr5r"]
+
+[ext_resource type="Texture2D" uid="uid://bkhqhh1hxd8xg" path="res://assets/graphics/animations/blue_pickup.png" id="1_o2by8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itvsr"]
+size = Vector2(11, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2uvk"]
+atlas = ExtResource("1_o2by8")
+region = Rect2(1, 1, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj22m"]
+atlas = ExtResource("1_o2by8")
+region = Rect2(18, 1, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs10y"]
+atlas = ExtResource("1_o2by8")
+region = Rect2(35, 1, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxlok"]
+atlas = ExtResource("1_o2by8")
+region = Rect2(52, 1, 15, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r2t5l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2uvk")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_fj22m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs10y")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_hxlok")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.3
+}]
+
+[node name="RedMask" type="Area2D" unique_id=809340932]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=710769399]
+shape = SubResource("RectangleShape2D_itvsr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=87544026]
+sprite_frames = SubResource("SpriteFrames_r2t5l")
+autoplay = "default"
+frame_progress = 0.8891487

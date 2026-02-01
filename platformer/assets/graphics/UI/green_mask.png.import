@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sb6y8q3u0owh"
-path="res://.godot/imported/checkpoint prism.png-e09b6994e3e938346c6affb152ed0c01.ctex"
+uid="uid://cgfj86ty8vax7"
+path="res://.godot/imported/green_mask.png-a7583c630c111ddac0164a4c59ebae4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/animations/checkpoint prism.png"
-dest_files=["res://.godot/imported/checkpoint prism.png-e09b6994e3e938346c6affb152ed0c01.ctex"]
+source_file="res://assets/graphics/UI/green_mask.png"
+dest_files=["res://.godot/imported/green_mask.png-a7583c630c111ddac0164a4c59ebae4f.ctex"]
 
 [params]
 
