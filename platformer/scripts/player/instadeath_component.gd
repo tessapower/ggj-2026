@@ -9,5 +9,4 @@ func _ready() -> void:
 	
 
 func _on_body_entered(body: Node2D):
-	# Am I getting touched by an instadeath body? Time to die!
-	print_debug(body)
+	player.is_time_to_die = true
