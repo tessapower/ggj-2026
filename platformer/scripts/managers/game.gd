@@ -12,7 +12,14 @@ var level_1 = preload('uid://bbvot6xuyplai')
 func _ready() -> void:
 	music_manager.fade_music_in(multistream_music)
 	level_container.add_child(level_1.instantiate())
+	var goal_scene: Goal = level_container.find_child("Goal")
+	if goal_scene:
+		goal_scene.goal_reached.connect(_on_goal_reached)
 	MaskManager.mask_changed.connect(_on_mask_color_changed)
+
+
+func _on_goal_reached() -> void:
+	print('it worked!')
 
 
 func _on_mask_color_changed() -> void:
