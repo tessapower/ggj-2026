@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="platformer"
-run/main_scene="uid://dmd6up3hiego"
+run/main_scene="uid://cr2jnr1pf8hxj"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://cr2jnr1pf8hxj"
+
+[audio]
+
+buses/default_bus_layout="uid://bbxij0qlpsswv"
 
 [autoload]
 
@@ -82,6 +87,14 @@ toggle_green={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Black"
+2d_physics/layer_2="Red"
+2d_physics/layer_3="Blue"
+2d_physics/layer_4="Green"
+2d_physics/layer_5="Player"
 
 [physics]
 
