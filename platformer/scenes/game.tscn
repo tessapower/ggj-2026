@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://qrhju8j4q7de"]
+[gd_scene format=3 uid="uid://qrhju8j4q7de"]
 
-[ext_resource type="Script" path="res://scripts/managers/music_manager.gd" id="1_iywne"]
+[ext_resource type="Script" uid="uid://ck6orx3a62ecn" path="res://scripts/managers/music_manager.gd" id="1_iywne"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=134707100]
 script = ExtResource("1_iywne")
 
-[node name="MusicManager" type="Node" parent="."]
+[node name="MusicManager" type="Node" parent="." unique_id=1594479133]
 script = ExtResource("1_iywne")
