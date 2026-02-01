@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://dr8ioja5inmsv"]
 
 [ext_resource type="Script" uid="uid://dw8l3skd2w60k" path="res://scripts/player/player.gd" id="1_dovo2"]
-[ext_resource type="Texture2D" uid="uid://bqjwrbgnbf5tn" path="res://icon.svg" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://ces1l31ocbax6" path="res://scripts/stateMachine/state_machine.gd" id="3_gmlin"]
 [ext_resource type="Script" uid="uid://cvdqwf1iena3f" path="res://scripts/player/walking.gd" id="4_75vfm"]
 [ext_resource type="Script" uid="uid://cwwplm58suixx" path="res://scripts/player/jumping.gd" id="5_0owmy"]
 [ext_resource type="Script" uid="uid://do588qbhxbexg" path="res://scripts/player/falling.gd" id="6_qek5x"]
 [ext_resource type="Script" uid="uid://dud3c6ywv8bij" path="res://scripts/player/switch_mask_component.gd" id="7_0owmy"]
 [ext_resource type="Texture2D" uid="uid://cs27jnyba0yw2" path="res://assets/graphics/animations/hugh.png" id="7_qek5x"]
-
+[ext_resource type="Script" uid="uid://u1j3nuaejsp1" path="res://scripts/player/instadeath_component.gd" id="8_qek5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
 size = Vector2(11, 13)
@@ -373,6 +372,7 @@ animations = [{
 "speed": 10.0
 }]
 
+<<<<<<< HEAD
 [sub_resource type="AtlasTexture" id="AtlasTexture_0owmy"]
 atlas = ExtResource("7_qek5x")
 region = Rect2(0, 48, 15, 15)
@@ -734,6 +734,10 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1253675667]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gtgg"]
+size = Vector2(14, 14)
+
+[node name="Player" type="CharacterBody2D" unique_id=2139937865]
 collision_layer = 16
 collision_mask = 15
 script = ExtResource("1_dovo2")
@@ -773,3 +777,15 @@ script = ExtResource("7_0owmy")
 sprite_frames = SubResource("SpriteFrames_upxxc")
 animation = &"Land"
 offset = Vector2(0.5, 0.5)
+
+[node name="InstadeathComponent" type="Area2D" parent="." unique_id=1127918598 node_paths=PackedStringArray("player")]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("8_qek5x")
+player = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InstadeathComponent" unique_id=702908484]
+visible = false
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5gtgg")
+debug_color = Color(0.8524049, 0.35061392, 0.32971907, 0.41960785)
