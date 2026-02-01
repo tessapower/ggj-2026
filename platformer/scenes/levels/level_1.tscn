@@ -9,7 +9,7 @@
 [node name="Level1" type="Node2D" unique_id=2052008603]
 
 [node name="Mask" parent="." unique_id=160487098 instance=ExtResource("1_6761a")]
-position = Vector2(404, 234)
+position = Vector2(403.99994, 233.99998)
 scale = Vector2(0.1, 0.1)
 mask_color = 1
 
@@ -24,7 +24,7 @@ tile_set = ExtResource("7_dga24")
 script = ExtResource("5_sk5k4")
 
 [node name="Player" parent="." unique_id=1775440144 instance=ExtResource("5_6761a")]
-position = Vector2(-5, 81)
+position = Vector2(-24, 68)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=454655966]
 zoom = Vector2(2, 2)

@@ -4,7 +4,7 @@ extends Node
 
 
 func _on_mask_pickup(body: Node2D) -> void:
-	if body.name == "Player":
+	if body is Player:
 		MaskManager.enable_mask_color(mask_color)
 		
 		# Remove mask node from the scene
