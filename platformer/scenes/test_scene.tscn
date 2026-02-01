@@ -49,7 +49,13 @@ shape = SubResource("RectangleShape2D_nd71p")
 
 [node name="Player" parent="." unique_id=2139937865 instance=ExtResource("1_g7g4h")]
 position = Vector2(7, -8)
+<<<<<<< HEAD
 collision_mask = 15
+||||||| parent of e39fd35 (Update scene files)
+=======
+collision_layer = 1
+collision_mask = 1
+>>>>>>> e39fd35 (Update scene files)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1209560296]
 zoom = Vector2(4, 4)
