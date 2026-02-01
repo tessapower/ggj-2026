@@ -14,7 +14,7 @@ func _input(event):
 
 func _on_mask_changed() -> void:
 	prints('Red:', MaskManager.is_red_on, 'Blue:', MaskManager.is_blue_on, 'Green:', MaskManager.is_green_on)
-	
+
 	var cells = get_used_cells();
 	for i in cells.size():
 		var coords = cells[i]
