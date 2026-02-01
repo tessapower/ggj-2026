@@ -52,6 +52,9 @@ _data = {
 &"move": SubResource("Animation_3qdq8")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w05fm"]
+size = Vector2(38, 7)
+
 [node name="BlueMovablePlatform" type="Node2D" unique_id=598591550 groups=["blue_things"]]
 script = ExtResource("1_w05fm")
 layer_value = 3
@@ -73,3 +76,12 @@ texture = SubResource("AtlasTexture_gdact")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=359361571]
 libraries/ = SubResource("AnimationLibrary_r012x")
 autoplay = &"move"
+
+[node name="InstadeathArea" type="Area2D" parent="." unique_id=1633401316]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InstadeathArea" unique_id=1367729190]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_w05fm")
+debug_color = Color(0.92273605, 0.25988597, 0.2602734, 0.41960785)
