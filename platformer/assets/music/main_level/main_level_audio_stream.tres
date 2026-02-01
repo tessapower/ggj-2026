@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamSynchronized" format=3 uid="uid://v6k6jt5ovhsr"]
+
+[ext_resource type="AudioStream" uid="uid://bc6r3j2wu8x5e" path="res://assets/music/main_level/main_draft1_base.wav" id="1_51npq"]
+[ext_resource type="AudioStream" uid="uid://ddnl4vhb31oj7" path="res://assets/music/main_level/main_draft1_red.wav" id="2_h2xog"]
+[ext_resource type="AudioStream" uid="uid://dn1wbk6rnuhac" path="res://assets/music/main_level/main_draft1_green.wav" id="3_hso84"]
+[ext_resource type="AudioStream" uid="uid://cvywjaoy3ss57" path="res://assets/music/main_level/main_draft1_blue.wav" id="4_qpsud"]
+
+[resource]
+stream_count = 4
+stream_0/stream = ExtResource("1_51npq")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_h2xog")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("3_hso84")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("4_qpsud")
+stream_3/volume = 0.0
