@@ -1,32 +1,35 @@
-extends Node2D
-
-@onready var blue_layer : TileMapLayer = $"Blue Layer"
-@onready var green_layer : TileMapLayer = $"Green Layer"
-@onready var red_layer : TileMapLayer = $"Red Layer"
-var toggle = true
+extends TileMapLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#MaskManager.mask_changed.connect(_on_mask_changed)
-	pass
+	MaskManager.mask_changed.connect(_on_mask_changed)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
 func _input(event):
-	#if event.is_action_pressed("toggle_red"):
-	if event.is_action_pressed("up"):
-		var cells = red_layer.get_used_cells();
-		for i in cells.size():
-			var atlas_coords = red_layer.get_cell_atlas_coords(cells[i]);
-			if toggle == true:
-				red_layer.set_cell(Vector2i(cells[i].x,cells[i].y), 4, Vector2i(atlas_coords.x, atlas_coords.y+4));
-				toggle = false
-			else:
-				red_layer.set_cell(Vector2i(cells[i].x,cells[i].y), 4, Vector2i(atlas_coords.x, atlas_coords.y-4));
-				toggle = true
+	pass
 
 func _on_mask_changed() -> void:
-	#prints('Red:', MaskManager.is_red_on, 'Blue:', MaskManager.is_blue_on, 'Green:', MaskManager.is_green_on)
-	pass
+	prints('Red:', MaskManager.is_red_on, 'Blue:', MaskManager.is_blue_on, 'Green:', MaskManager.is_green_on)
+
+	var cells = get_used_cells();
+	for i in cells.size():
+		var coords = cells[i]
+		var atlas_coords = get_cell_atlas_coords(coords)
+		if MaskManager.is_red_on and name == "Red Layer":
+			set_cell(Vector2i(coords.x,coords.y), 4, Vector2i(atlas_coords.x, atlas_coords.y+4));
+		elif !MaskManager.is_red_on and name == "Red Layer" and atlas_coords.y > 3:
+			set_cell(Vector2i(coords.x,coords.y), 4, Vector2i(atlas_coords.x, atlas_coords.y-4));
+			
+		if MaskManager.is_blue_on and name == "Blue Layer":
+			set_cell(Vector2i(coords.x,coords.y), 2, Vector2i(atlas_coords.x, atlas_coords.y+4));
+		elif ! MaskManager.is_blue_on and name == "Blue Layer" and atlas_coords.y > 3:
+			set_cell(Vector2i(coords.x,coords.y), 2, Vector2i(atlas_coords.x, atlas_coords.y-4));
+		
+		if MaskManager.is_green_on and name == "Green Layer":
+			set_cell(Vector2i(coords.x,coords.y), 3, Vector2i(atlas_coords.x, atlas_coords.y+4));
+		elif !MaskManager.is_green_on and name == "Green Layer" and atlas_coords.y > 3:
+			set_cell(Vector2i(coords.x,coords.y), 3, Vector2i(atlas_coords.x, atlas_coords.y-4));
