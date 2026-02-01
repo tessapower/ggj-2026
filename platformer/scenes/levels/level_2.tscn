@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bbycria6lfncd" path="res://assets/graphics/terrain/green_tileset.png" id="3_ibugp"]
 [ext_resource type="Texture2D" uid="uid://dcyjch7mjjdoi" path="res://assets/graphics/terrain/red_tileset.png" id="4_8qukl"]
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="5_3p04p"]
+[ext_resource type="Script" uid="uid://b1d17s6k1p6gq" path="res://scripts/player/tint.gd" id="6_qpwj6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ydll7"]
 texture = ExtResource("1_l37oo")
@@ -5313,6 +5314,9 @@ sources/2 = SubResource("TileSetAtlasSource_qpwj6")
 sources/3 = SubResource("TileSetAtlasSource_ibugp")
 sources/4 = SubResource("TileSetAtlasSource_8qukl")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l37oo"]
+blend_mode = 3
+
 [node name="Level2" type="Node2D" unique_id=488515852]
 
 [node name="Black Layer" type="TileMapLayer" parent="." unique_id=507704582]
@@ -5330,9 +5334,63 @@ tile_map_data = PackedByteArray("AAAcAA0AAgAAAAAAAAAcAA4AAgAAAAEAAAAcAA8AAgAAAAE
 tile_set = SubResource("TileSet_3p04p")
 
 [node name="Player" parent="." unique_id=2139937865 instance=ExtResource("5_3p04p")]
-position = Vector2(-101, 91)
+position = Vector2(-101, 94)
 collision_layer = 16
 collision_mask = 15
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1707973446]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2104392664]
 zoom = Vector2(2, 2)
+
+[node name="Red Tint" type="ColorRect" parent="Player/Camera2D" unique_id=1140439380 groups=["red_things"]]
+visible = false
+z_index = 4
+material = SubResource("CanvasItemMaterial_l37oo")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -135.0
+offset_right = 240.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.89411765, 0.45882353, 0.49803922, 1)
+script = ExtResource("6_qpwj6")
+
+[node name="Green Tint" type="ColorRect" parent="Player/Camera2D" unique_id=1707930345 groups=["green_things"]]
+visible = false
+z_index = 4
+material = SubResource("CanvasItemMaterial_l37oo")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -135.0
+offset_right = 240.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6, 0.8980392, 0.3137255, 1)
+script = ExtResource("6_qpwj6")
+
+[node name="Blue Tint" type="ColorRect" parent="Player/Camera2D" unique_id=277293665 groups=["blue_things"]]
+visible = false
+z_index = 4
+material = SubResource("CanvasItemMaterial_l37oo")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -135.0
+offset_right = 240.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3882353, 0.6156863, 0.8862745, 1)
+script = ExtResource("6_qpwj6")
