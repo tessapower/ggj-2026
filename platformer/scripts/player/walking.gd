@@ -13,11 +13,11 @@ extends State
 @export var jumping_state: State
 @export var dead_state: State
 
-var landing_sound = load('res://assets/sfx/land_1.wav')
+var landing_sound = load('res://assets/sfx/land_stream_randomizer.tres')
 
 func enter() -> void:
 	player.has_double_jumped = false
-	SoundManager.play_sound(landing_sound)
+	SoundManager.play_sound(landing_sound, "SFX")
 	
 
 func physics_process(delta) -> State:

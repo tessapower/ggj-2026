@@ -4,7 +4,7 @@ extends State
 @export var spawning_state: State
 @export var sprite: AnimatedSprite2D
 
-var death_sound = load('res://assets/sfx/death_1.wav')
+var death_sound = load('res://assets/sfx/death_stream_randomizer.tres')
 
 
 func _ready() -> void:

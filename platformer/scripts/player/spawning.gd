@@ -27,7 +27,7 @@ func enter() -> void:
 	player.global_position = player.spawn_point
 	player.visible = true
 	sprite.play(&'Spawn')
-	SoundManager.play_sound(spawn_sound)
+	SoundManager.play_sound(spawn_sound, "SFX")
 	
 
 func process(_delta) -> State:

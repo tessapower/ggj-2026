@@ -59,8 +59,8 @@ func get_available_player() -> AudioStreamPlayer:
 
 func get_player_with_resource(resource: AudioStream) -> AudioStreamPlayer:
 	for player in busy_players + available_players:
-		if player.stream == resource:
-			return player
+		"""if player.stream == resource:
+			return player"""
 	return null
 
 
