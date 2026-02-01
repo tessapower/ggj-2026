@@ -1,35 +1,128 @@
-name: Publish to Itch.io
+name: "godot-ci export"
+on: [push, workflow_dispatch]
 
-on:
-  push:
-    branches: ["main"]
-
-    paths-ignore:
-      - 'README.md'          # Ignore changes to README.md
+env:
+  GODOT_VERSION: 4.6
+  EXPORT_NAME: ${{ vars.ITCHIO_GAME }}
+  PROJECT_PATH: platformer
+  ITCHIO_USERNAME: ${{ vars.ITCHIO_USER }}
+  ITCHIO_GAME: ${{ vars.ITCHIO_GAME }}
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  export-windows:
+    name: Windows Export
+    runs-on: ubuntu-24.04  # Use 24.04 with godot 4
+    container:
+      image: barichello/godot-ci:4.6
     steps:
-      - name: Checkout source code
+      - name: Checkout
         uses: actions/checkout@v6
-
-      - name: Godot Export
-        id: export
-        uses: firebelley/godot-export@v7.0.0
         with:
-          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.6-stable/Godot_v4.6-stable_linux.x86_64.zip
-          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.6-stable/Godot_v4.6-stable_export_templates.tpz
-          relative_project_path: ./platformer
-          archive_output: true
+          lfs: true
+
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mkdir -v -p ~/.config/
+          mv /root/.config/godot ~/.config/godot
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Windows Build
+        run: |
+          mkdir -v -p build/windows
+          EXPORT_DIR="$(readlink -f build)"
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "Windows Desktop" "$EXPORT_DIR/windows/$EXPORT_NAME.exe"
+
+      - name: Push to itch.io
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: |
+          butler push ./build/windows $ITCHIO_USERNAME/$ITCHIO_GAME:windows
 
-      - name: Publish to Itch
-        uses: Ayowel/butler-to-itch@v1.2.0
+  export-linux:
+    name: Linux Export
+    runs-on: ubuntu-24.04  # Use 24.04 with godot 4
+    container:
+      image: barichello/godot-ci:4.6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
         with:
-          butler_key: ${{secrets.ITCHIO_TOKEN}}
-          itch_user: ${{env.ITCHIO_USER}}
-          itch_game: ${{env.ITCHO_GAME}}
-          version: ${{ github.ref_name }}
-          files: "${{ steps.export.outputs.archive_directory }}/test-web.zip"
+          lfs: true
+
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Linux Build
+        run: |
+          mkdir -v -p build/linux
+          EXPORT_DIR="$(readlink -f build)"
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "Linux/X11" "$EXPORT_DIR/linux/$EXPORT_NAME.x86_64"
+
+      - name: Push to itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: |
+          butler push ./build/linux $ITCHIO_USERNAME/$ITCHIO_GAME:linux
+
+  export-web:
+    name: Web Export
+    runs-on: ubuntu-24.04  # Use 24.04 with godot 4
+    container:
+      image: barichello/godot-ci:4.6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          lfs: true
+
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Web Build
+        run: |
+          mkdir -v -p build/web
+          EXPORT_DIR="$(readlink -f build)"
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
+
+      - name: Push to itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: |
+          butler push ./build/web $ITCHIO_USERNAME/$ITCHIO_GAME:web
+
+  export-mac:
+    name: Mac Export
+    runs-on: ubuntu-24.04  # Use 24.04 with godot 4
+    container:
+      image: barichello/godot-ci:4.6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          lfs: true
+
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Mac Build
+        run: |
+          mkdir -v -p build/mac
+          EXPORT_DIR="$(readlink -f build)"
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "macOS" "$EXPORT_DIR/mac/$EXPORT_NAME.zip"
+
+      - name: Push to itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+        run: |
+          butler push ./build/mac $ITCHIO_USERNAME/$ITCHIO_GAME:mac
