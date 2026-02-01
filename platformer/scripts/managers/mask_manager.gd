@@ -25,8 +25,17 @@ func _on_current_color_changed(new_value):
 	if current_color == new_value:
 		return
 	current_color = new_value
+	get_tree().call_group(&'red_things', _get_function_for_color(MASK_COLOR.RED))
+	get_tree().call_group(&'green_things', _get_function_for_color(MASK_COLOR.GREEN))
+	get_tree().call_group(&'blue_things', _get_function_for_color(MASK_COLOR.BLUE))
 	mask_changed.emit()
 
+
+func _get_function_for_color(color: MASK_COLOR) -> StringName:
+	if current_color == color:
+		return &'mask_color_activate'
+	else:
+		return &'mask_color_deactivate'
 
 func reset_masks() -> void:
 	current_color = MASK_COLOR.NONE
