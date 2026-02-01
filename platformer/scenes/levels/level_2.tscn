@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://corf4nu7yt3bb" path="res://scripts/obstacles/toggle.gd" id="5_qpwj6"]
 [ext_resource type="TileSet" uid="uid://c3ahxwk4knacy" path="res://resources/black_tileset.tres" id="5_qsp8v"]
 [ext_resource type="TileSet" uid="uid://31uv7267uwx8" path="res://resources/red_tileset.tres" id="6_8qukl"]
+[ext_resource type="PackedScene" uid="uid://bcxhqalctwb8g" path="res://scenes/masks/mask.tscn" id="6_qpwj6"]
 [ext_resource type="TileSet" uid="uid://cxmagoltdlixw" path="res://resources/blue_tileset.tres" id="7_3p04p"]
 
 [node name="Level2" type="Node2D" unique_id=1565228703]
@@ -28,3 +29,8 @@ position = Vector2(-106, 91)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1202381923]
 zoom = Vector2(2, 2)
+
+[node name="Mask" parent="." unique_id=160487098 instance=ExtResource("6_qpwj6")]
+position = Vector2(121.00008, 234)
+scale = Vector2(0.1, 0.1)
+mask_color = 2
