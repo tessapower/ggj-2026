@@ -1,13 +1,18 @@
 [gd_scene format=4 uid="uid://dmqwm1whvogj4"]
 
+[ext_resource type="PackedScene" uid="uid://cutmlppckah7o" path="res://scenes/checkpoint_scene.tscn" id="1_8qukl"]
 [ext_resource type="PackedScene" uid="uid://bx8tgitasqr5r" path="res://scenes/masks/blue_mask.tscn" id="1_ibugp"]
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="5_3p04p"]
 [ext_resource type="Script" uid="uid://corf4nu7yt3bb" path="res://scripts/obstacles/toggle.gd" id="5_qpwj6"]
 [ext_resource type="TileSet" uid="uid://c3ahxwk4knacy" path="res://resources/black_tileset.tres" id="5_qsp8v"]
 [ext_resource type="TileSet" uid="uid://31uv7267uwx8" path="res://resources/red_tileset.tres" id="6_8qukl"]
 [ext_resource type="TileSet" uid="uid://cxmagoltdlixw" path="res://resources/blue_tileset.tres" id="7_3p04p"]
+[ext_resource type="PackedScene" uid="uid://dywb7hfusk16f" path="res://scenes/goal_scene.tscn" id="8_8qukl"]
 
 [node name="Level2" type="Node2D" unique_id=1565228703]
+
+[node name="Checkpoint" parent="." unique_id=315066947 instance=ExtResource("1_8qukl")]
+position = Vector2(547, -9)
 
 [node name="BlueMask" parent="." unique_id=809340932 instance=ExtResource("1_ibugp")]
 position = Vector2(128, 233)
@@ -28,7 +33,10 @@ tile_set = ExtResource("7_3p04p")
 script = ExtResource("5_qpwj6")
 
 [node name="Player" parent="." unique_id=1072855347 instance=ExtResource("5_3p04p")]
-position = Vector2(-106, 84)
+position = Vector2(-109, 88)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1202381923]
 zoom = Vector2(2, 2)
+
+[node name="Goal" parent="." unique_id=207536555 instance=ExtResource("8_8qukl")]
+position = Vector2(-106, 30)
