@@ -13,7 +13,6 @@ var current_music_player : AudioStreamPlayer
 @onready var audio_stream_01 : AudioStreamPlayer = $AudioStreamPlayer1
 @onready var audio_stream_02 : AudioStreamPlayer = $AudioStreamPlayer2
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_music_player = audio_stream_01
 	fade_music_in(t)
@@ -22,7 +21,8 @@ func _ready() -> void:
 	timer.timeout.connect(func(): crossfade_sync_stream([0,1]))  
 	var timer2:SceneTreeTimer = get_tree().create_timer(20.0)  
 	timer2.timeout.connect(func(): crossfade_sync_stream([0,2]))
-	
+
+
 func fade_music_in(track: AudioStream) -> void:
 	current_music_player.stream = track
 	current_music_player.volume_db = mute_db
@@ -39,7 +39,7 @@ func fade_music_in(track: AudioStream) -> void:
 
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(current_music_player, "volume_db", default_music_db, track_fade_time)
-	
+
 
 func fade_music_out() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
@@ -52,7 +52,8 @@ func crossfade_music_to(track: AudioStream) -> void:
 	current_music_player = audio_stream_01 if current_music_player == audio_stream_02 else audio_stream_02
 	
 	fade_music_in(track) # Fade in second player
-	
+
+
 func crossfade_sync_stream(active_tracks: Array[int]):
 	# Fail silently if not playing synchronized tracks
 	if (current_music_player.stream is not AudioStreamSynchronized):
@@ -82,9 +83,3 @@ func crossfade_sync_stream(active_tracks: Array[int]):
 				)
 		
 		track.set_sync_stream_volume(i, mute_db)
-
- 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass

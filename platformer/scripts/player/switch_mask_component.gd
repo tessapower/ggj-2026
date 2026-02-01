@@ -1,7 +1,5 @@
 extends Node
 
-# TODO: Could be overkill to be in a component?!
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&'toggle_red'):
 		MaskManager.toggle(MaskManager.MASK_COLOR.RED)

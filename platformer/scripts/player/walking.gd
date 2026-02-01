@@ -12,8 +12,10 @@ extends State
 @export var falling_state: State
 @export var jumping_state: State
 
+
 func enter() -> void:
 	player.has_double_jumped = false
+
 
 func physics_process(delta) -> State:
 	# Gravity.

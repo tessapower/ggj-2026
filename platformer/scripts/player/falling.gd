@@ -48,13 +48,6 @@ func exit() -> void:
 	sprite.rotation = 0
 
 
-#func process(_delta) -> State:
-	#if player.velocity.y != 0:
-		#sprite.rotation = sign(player.velocity.x) * (player.velocity.y / 200) * .1
-#
-	#return null
-
-
 func physics_process(delta) -> State:
 	var was_on_floor = player.is_on_floor()
 	var old_vel_y = player.velocity.y
@@ -84,11 +77,9 @@ func physics_process(delta) -> State:
 	if Input.is_action_just_pressed("jump") and player.velocity.y > 0:
 		jump_buffer_counter = jump_buffer_time
 
-
 	# Coyote time.
 	if Input.is_action_just_pressed("jump") and player.velocity.y >= 0 and coyote_time_counter < coyote_time:
 		return jumping_state
-
 
 	# Floaty peaks.
 	if is_still_holding_jump and !Input.is_action_pressed("jump"):
@@ -100,20 +91,16 @@ func physics_process(delta) -> State:
 	if !Input.is_action_pressed("jump") and current_gravity == float_gravity:
 		current_gravity = normal_gravity
 
-
 	# Responsive jump.
 	if !Input.is_action_pressed("jump") and player.velocity.y < half_jump_velocity:
 		player.velocity.y = half_jump_velocity
-
 
 	# Double-jump.
 	if Input.is_action_just_pressed("jump") and !player.has_double_jumped and player.can_double_jump:
 		player.has_double_jumped = true
 		return jumping_state
 
-
 	player.move_and_slide()
-
 
 	# Did we land?
 	if !was_on_floor and player.is_on_floor():

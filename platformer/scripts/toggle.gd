@@ -1,17 +1,10 @@
 extends TileMapLayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	MaskManager.mask_changed.connect(_on_mask_changed)
-	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
-func _input(event):
-	pass
-
+# Callback for when the player changes the mask.
 func _on_mask_changed() -> void:
 	prints('Red:', MaskManager.is_red_on, 'Blue:', MaskManager.is_blue_on, 'Green:', MaskManager.is_green_on)
 
