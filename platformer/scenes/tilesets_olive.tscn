@@ -2706,10 +2706,6 @@ scale = Vector2(0.32, 0.120000005)
 position = Vector2(392, 179)
 scale = Vector2(0.16000003, 0.16000003)
 
-[node name="Redmask" parent="." unique_id=611933622 instance=ExtResource("7_k3o2w")]
-position = Vector2(409, 183)
-scale = Vector2(0.12418532, -0.1257418)
-
 [node name="Goal" parent="." unique_id=100752822 instance=ExtResource("9_pms8s")]
 position = Vector2(68, 142)
 scale = Vector2(0.12000245, 0.120000005)
