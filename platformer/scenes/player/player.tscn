@@ -405,7 +405,6 @@ walking_state = NodePath("../Walking")
 jumping_state = NodePath("../Jumping")
 
 [node name="SwitchMaskComponent" type="Node" parent="." unique_id=1478003977]
-
 script = ExtResource("7_0owmy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=672243726]
