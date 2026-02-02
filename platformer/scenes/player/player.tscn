@@ -446,7 +446,8 @@ shape = SubResource("RectangleShape2D_5gtgg")
 debug_color = Color(0.90798604, 0.27021638, 0.35077047, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=144420748]
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
+position_smoothing_speed = 10.0
 
 [node name="RedTint" type="ColorRect" parent="Camera2D" unique_id=724297997 groups=["red_things"]]
 visible = false
