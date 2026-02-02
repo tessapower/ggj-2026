@@ -13,8 +13,8 @@ enum MASK_COLOR {
 var masks: Dictionary[MASK_COLOR, bool] = {
 	MASK_COLOR.NONE: false,
 	MASK_COLOR.RED: false,
-	MASK_COLOR.BLUE: false,
 	MASK_COLOR.GREEN: false,
+	MASK_COLOR.BLUE: false,
 }
 
 
@@ -75,7 +75,7 @@ func enable_mask_color(color: MASK_COLOR) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&'toggle_red') and masks[MaskManager.MASK_COLOR.RED]:
 		toggle(MASK_COLOR.RED)
-	if event.is_action_pressed(&'toggle_blue') and masks[MaskManager.MASK_COLOR.BLUE]:
-		toggle(MASK_COLOR.BLUE)
 	if event.is_action_pressed(&'toggle_green') and masks[MaskManager.MASK_COLOR.GREEN]:
 		toggle(MASK_COLOR.GREEN)
+	if event.is_action_pressed(&'toggle_blue') and masks[MaskManager.MASK_COLOR.BLUE]:
+		toggle(MASK_COLOR.BLUE)
