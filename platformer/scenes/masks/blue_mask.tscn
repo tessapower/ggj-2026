@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bx8tgitasqr5r"]
 
 [ext_resource type="Texture2D" uid="uid://bkhqhh1hxd8xg" path="res://assets/graphics/animations/blue_pickup.png" id="1_o2by8"]
-[ext_resource type="Script" uid="uid://b1ptcj31dtdaa" path="res://scripts/player/mask.gd" id="1_s2uvk"]
+[ext_resource type="Script" uid="uid://b1ptcj31dtdaa" path="res://scripts/masks/mask.gd" id="1_s2uvk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itvsr"]
 size = Vector2(11, 7)
