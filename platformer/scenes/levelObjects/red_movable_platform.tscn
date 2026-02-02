@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccjtnr1x2hi7k"]
 
-[ext_resource type="Script" uid="uid://d1a1cvguvrjg" path="res://scripts/obstacles/colored_movable_platform.gd" id="1_5ld3g"]
+[ext_resource type="Script" uid="uid://d1a1cvguvrjg" path="res://scripts/levelObjects/colored_movable_platform.gd" id="1_5ld3g"]
 [ext_resource type="Texture2D" uid="uid://dcyjch7mjjdoi" path="res://assets/graphics/terrain/red_tileset.png" id="2_5ld3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqpny"]
