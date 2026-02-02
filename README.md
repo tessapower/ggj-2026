@@ -1,4 +1,4 @@
-# Hugh's Chromatic Adveture
+# Hugh's Chromatic Adventure
 
 A game entry for the Global Game Jam 2026, held at the Austin, TX jam site!
 
