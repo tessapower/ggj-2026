@@ -1,10 +1,10 @@
-# NAME TBD
+# Hugh's Chromatic Adventure
 
 A game entry for the Global Game Jam 2026, held at the Austin, TX jam site!
 
-[ game name ] is a puzzle platformer where you use colored masks to strategically overcome colored obstacles and challenges to complete each level.
+Hugh's Chromatic Adventure is a puzzle platformer where you use colored masks to strategically overcome colored obstacles and challenges to complete each level.
 
-TODO: [itch.io Page](./)
+[Play on Itch.io!](https://sasspower.itch.io/hughs-chromatic-adventure)
 
 ## Theme
 
