@@ -22,6 +22,10 @@ Hugh's Chromatic Adventure is a puzzle platformer where you use colored masks to
 
 You start with a red mask, and once you put it on, anything that is red will disappear! Need to get past that red wall blocking the way? Put your red mask on and walk on through. As you progress, you'll find masks of different colors to add to your toolbelt and help you solve the puzzles. The puzzles will rely on your creativity and quick thinking to solve them all. See a purple obstacle, but you don't have a purple mask...? I'm sure you'll figure it out. 😎
 
+## Development
+
+For developers working on this project, see [ARCHITECTURE.md](./ARCHITECTURE.md) for the scene transition architecture and global state management design.
+
 ## Screenshots (TODO)
 
 - [ ] Add screenshots
