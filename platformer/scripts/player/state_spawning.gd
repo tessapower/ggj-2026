@@ -28,7 +28,7 @@ func enter() -> void:
 	player.visible = true
 	sprite.play(&'Spawn')
 	SoundManager.play_sound(spawn_sound, "SFX")
-	
+
 
 func process(_delta) -> State:
 	if !sprite.is_playing():
