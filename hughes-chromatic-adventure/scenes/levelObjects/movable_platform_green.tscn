@@ -1,17 +1,17 @@
-[gd_scene format=3 uid="uid://or25juh538cy"]
+[gd_scene format=3 uid="uid://coox1yjiy4jp0"]
 
-[ext_resource type="Script" uid="uid://d1a1cvguvrjg" path="res://scripts/obstacles/colored_movable_platform.gd" id="1_w05fm"]
-[ext_resource type="Texture2D" uid="uid://dv7t0hjq51hg0" path="res://assets/graphics/terrain/blue_tileset.png" id="2_w05fm"]
+[ext_resource type="Script" uid="uid://d1a1cvguvrjg" path="res://scripts/levelObjects/colored_movable_platform.gd" id="1_gme3c"]
+[ext_resource type="Texture2D" uid="uid://bbycria6lfncd" path="res://assets/graphics/terrain/green_tileset.png" id="2_gme3c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqpny"]
 size = Vector2(45, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q8tsi"]
-atlas = ExtResource("2_w05fm")
+atlas = ExtResource("2_gme3c")
 region = Rect2(15, 45, 45, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdact"]
-atlas = ExtResource("2_w05fm")
+atlas = ExtResource("2_gme3c")
 region = Rect2(15, 105, 45, 15)
 
 [sub_resource type="Animation" id="Animation_q8tsi"]
@@ -52,15 +52,15 @@ _data = {
 &"move": SubResource("Animation_3qdq8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w05fm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gme3c"]
 size = Vector2(38, 7)
 
-[node name="BlueMovablePlatform" type="Node2D" unique_id=598591550 groups=["blue_things"]]
-script = ExtResource("1_w05fm")
-layer_value = 3
+[node name="GreenMovablePlatform" type="Node2D" unique_id=598591550 groups=["green_things"]]
+script = ExtResource("1_gme3c")
+layer_value = 4
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1904008499]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1985189495]
@@ -77,11 +77,11 @@ texture = SubResource("AtlasTexture_gdact")
 libraries/ = SubResource("AnimationLibrary_r012x")
 autoplay = &"move"
 
-[node name="InstadeathArea" type="Area2D" parent="." unique_id=1633401316]
+[node name="InstadeathArea" type="Area2D" parent="." unique_id=1990009422]
 collision_layer = 32
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InstadeathArea" unique_id=1367729190]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InstadeathArea" unique_id=678581521]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_w05fm")
+shape = SubResource("RectangleShape2D_gme3c")
 debug_color = Color(0.92273605, 0.25988597, 0.2602734, 0.41960785)

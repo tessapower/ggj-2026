@@ -19,8 +19,8 @@ func _ready() -> void:
 func enter() -> void:
 	sprite.play(&'Die')
 	SoundManager.play_music(death_sound)
-	
-	
+
+
 func process(_delta) -> State:
 	if !sprite.is_playing():
 		return spawning_state
