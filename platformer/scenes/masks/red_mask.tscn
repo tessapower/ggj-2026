@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bcxhqalctwb8g"]
 
-[ext_resource type="Script" uid="uid://b1ptcj31dtdaa" path="res://scripts/player/mask.gd" id="1_pn7sv"]
+[ext_resource type="Script" uid="uid://b1ptcj31dtdaa" path="res://scripts/masks/mask.gd" id="1_pn7sv"]
 [ext_resource type="Texture2D" uid="uid://cfonl7tt7shrl" path="res://assets/graphics/animations/red_pickup.png" id="1_tjxvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itvsr"]

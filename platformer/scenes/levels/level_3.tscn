@@ -21,6 +21,3 @@ vertical_alignment = 1
 
 [node name="Player" parent="." unique_id=1253675667 instance=ExtResource("2_0ljxa")]
 position = Vector2(179, 149)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=586467603]
-zoom = Vector2(2, 2)

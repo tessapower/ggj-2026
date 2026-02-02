@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cs27jnyba0yw2" path="res://assets/graphics/animations/hugh.png" id="7_qek5x"]
 [ext_resource type="Script" uid="uid://bxj4oyxn0cbwf" path="res://scripts/player/dead.gd" id="8_5gtgg"]
 [ext_resource type="Script" uid="uid://u1j3nuaejsp1" path="res://scripts/player/instadeath_component.gd" id="9_qek5x"]
-
+[ext_resource type="Script" uid="uid://bm6hswn3k5fqv" path="res://scripts/masks/tint.gd" id="10_h17s1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
 size = Vector2(11, 13)
@@ -377,6 +377,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gtgg"]
 size = Vector2(14, 14)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5gtgg"]
+blend_mode = 3
+
 [node name="Player" type="CharacterBody2D" unique_id=1253675667]
 collision_layer = 16
 collision_mask = 15
@@ -441,3 +444,60 @@ player = NodePath("..")
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5gtgg")
 debug_color = Color(0.90798604, 0.27021638, 0.35077047, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=144420748]
+zoom = Vector2(2, 2)
+
+[node name="RedTint" type="ColorRect" parent="Camera2D" unique_id=724297997 groups=["red_things"]]
+visible = false
+z_index = 4
+material = SubResource("CanvasItemMaterial_5gtgg")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -68.0
+offset_right = 120.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95281494, 0.7055968, 0.73403823, 1)
+script = ExtResource("10_h17s1")
+
+[node name="GreenTint" type="ColorRect" parent="Camera2D" unique_id=825714992 groups=["green_things"]]
+visible = false
+z_index = 4
+material = SubResource("CanvasItemMaterial_5gtgg")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -68.0
+offset_right = 120.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.79595864, 0.95281494, 0.59608823, 1)
+script = ExtResource("10_h17s1")
+
+[node name="BlueTint" type="ColorRect" parent="Camera2D" unique_id=1862950873 groups=["blue_things"]]
+visible = false
+z_index = 4
+material = SubResource("CanvasItemMaterial_5gtgg")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -68.0
+offset_right = 120.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.65457314, 0.8077228, 0.94811296, 1)
+script = ExtResource("10_h17s1")

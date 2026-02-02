@@ -35,8 +35,5 @@ script = ExtResource("5_qpwj6")
 [node name="Player" parent="." unique_id=1072855347 instance=ExtResource("5_3p04p")]
 position = Vector2(-109, 88)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1202381923]
-zoom = Vector2(2, 2)
-
 [node name="Goal" parent="." unique_id=207536555 instance=ExtResource("8_8qukl")]
 position = Vector2(-106, 30)
