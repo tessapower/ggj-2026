@@ -8,6 +8,8 @@
 [ext_resource type="TileSet" uid="uid://c3ahxwk4knacy" path="res://resources/black_tileset.tres" id="5_qsp8v"]
 [ext_resource type="TileSet" uid="uid://31uv7267uwx8" path="res://resources/red_tileset.tres" id="6_8qukl"]
 [ext_resource type="PackedScene" uid="uid://dywb7hfusk16f" path="res://scenes/levelObjects/goal.tscn" id="8_8qukl"]
+[ext_resource type="PackedScene" uid="uid://q1o801ib3dgd" path="res://scenes/levelObjects/door_yellow.tscn" id="9_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://c0qt1bqicvqoe" path="res://scenes/levelObjects/key_yellow.tscn" id="10_nt80m"]
 
 [node name="Level2" type="Node2D" unique_id=1565228703]
 
@@ -33,7 +35,14 @@ tile_set = ExtResource("6_8qukl")
 script = ExtResource("5_qpwj6")
 
 [node name="Player" parent="." unique_id=1072855347 instance=ExtResource("5_3p04p")]
-position = Vector2(-109, 88)
+position = Vector2(-103, 82)
 
 [node name="Goal" parent="." unique_id=207536555 instance=ExtResource("8_8qukl")]
 position = Vector2(-106, 30)
+
+[node name="YellowDoor" parent="." unique_id=363789188 instance=ExtResource("9_qsp8v")]
+position = Vector2(0, 30)
+scale = Vector2(-1, 1)
+
+[node name="YellowKey" parent="." unique_id=339388337 instance=ExtResource("10_nt80m")]
+position = Vector2(435, 80)

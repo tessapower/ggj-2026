@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c0qt1bqicvqoe"]
+
+[ext_resource type="Texture2D" uid="uid://xqv4vvq2nbyb" path="res://assets/graphics/objects/yellow_key.png" id="1_62wi0"]
+[ext_resource type="Script" uid="uid://bs52vuekgf0ce" path="res://scripts/levelObjects/key.gd" id="1_l2np2"]
+[ext_resource type="Script" uid="uid://dpwdpebpcwixt" path="res://scripts/levelObjects/bob.gd" id="3_def08"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8ig0"]
+size = Vector2(13, 9)
+
+[node name="YellowKey" type="Area2D" unique_id=315066947]
+collision_mask = 16
+script = ExtResource("1_l2np2")
+color = "Yellow"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=54990701]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_x8ig0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1905749363]
+texture = ExtResource("1_62wi0")
+script = ExtResource("3_def08")
+
+[connection signal="body_entered" from="." to="." method="_body_entered"]
