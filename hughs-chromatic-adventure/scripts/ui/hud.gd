@@ -5,8 +5,8 @@ extends CanvasLayer
 @onready var blue_mask_icon: TextureRect = $Content/Masks/BlueMask
 
 const ICON_SIZE = 30
-const ACTIVE_REGION = Rect2(0, 0, ICON_SIZE, ICON_SIZE)
-const INACTIVE_REGION = Rect2(ICON_SIZE, 0, ICON_SIZE, ICON_SIZE)
+const INACTIVE_REGION = Rect2(0, 0, ICON_SIZE, ICON_SIZE)
+const ACTIVE_REGION = Rect2(ICON_SIZE, 0, ICON_SIZE, ICON_SIZE)
 
 
 func _ready() -> void:
