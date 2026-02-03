@@ -29,7 +29,7 @@ buses/default_bus_layout="uid://bbxij0qlpsswv"
 MaskManager="*res://scripts/managers/mask_manager.gd"
 SoundManager="*uid://byhkybclyevsp"
 GamestateManager="*uid://cykvr2plu64op"
-MusicManager="*uid://ck6orx3a62ecn"
+MusicManager="*uid://cr2jnr1pf8hxj"
 
 [display]
 
