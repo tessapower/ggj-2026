@@ -18,6 +18,13 @@ var normal_gravity: float = 0
 var jump_sound = load('res://assets/sfx/jump_stream_randomizer.tres')
 
 
+func play_jump():
+	if sprite.animation == "Jump":
+		# restart the jump animation if it was already playing
+		sprite.stop()
+	sprite.play("Jump")
+
+
 func _ready():
 	normal_gravity = (2 * jump_height) / (time_to_jump_apex ** 2)
 	jump_velocity = -normal_gravity * time_to_jump_apex
@@ -31,5 +38,5 @@ func physics_process(_delta) -> State:
 	player.velocity.y = jump_velocity
 	jumped.emit()
 	player.move_and_slide()
-	sprite.play("Jump")
+	play_jump()
 	return falling_state
