@@ -16,7 +16,6 @@ var on_level_two = false
 func _ready() -> void:
 	music_manager.fade_music_in(multistream_music)
 	level_container.add_child(level_1.instantiate())
-	MaskManager.mask_changed.connect(_on_mask_color_changed)
 	GamestateManager.level_complete.connect(_on_level_complete)
 
 
@@ -28,15 +27,3 @@ func _on_level_complete() -> void:
 		on_level_two = true
 	else:
 		level_container.add_child(level_3.instantiate())
-
-
-func _on_mask_color_changed() -> void:
-	var current_color = MaskManager.current_color
-	if current_color == MaskManager.MASK_COLOR.NONE:
-		music_manager.crossfade_sync_stream([0])
-	elif current_color == MaskManager.MASK_COLOR.RED:
-		music_manager.crossfade_sync_stream([0, 1])
-	elif current_color == MaskManager.MASK_COLOR.GREEN:
-		music_manager.crossfade_sync_stream([0, 2])
-	elif current_color == MaskManager.MASK_COLOR.BLUE:
-		music_manager.crossfade_sync_stream([0, 3])
