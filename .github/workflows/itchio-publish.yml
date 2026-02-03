@@ -9,7 +9,7 @@ on:
 env:
   GODOT_VERSION: 4.6
   EXPORT_NAME: ${{ vars.ITCHIO_GAME }}
-  PROJECT_PATH: platformer
+  PROJECT_PATH: hughs-chromatic-adventure
   ITCHIO_USERNAME: ${{ vars.ITCHIO_USER }}
   ITCHIO_GAME: ${{ vars.ITCHIO_GAME }}
 
