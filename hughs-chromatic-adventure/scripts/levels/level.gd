@@ -21,4 +21,6 @@ func _on_level_complete() -> void:
 
 func _load_next_scene() -> void:
 	if next_scene:
-		get_tree().call_deferred("change_scene_to_file", next_scene)
+		# Reset masks
+		MaskManager.remove_mask()
+		TransitionManager.fade_to_scene(next_scene)

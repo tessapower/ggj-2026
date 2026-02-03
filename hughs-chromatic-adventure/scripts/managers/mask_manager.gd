@@ -64,7 +64,7 @@ func _get_function_for_color(color: MASK_COLOR) -> StringName:
 	return &'mask_color_activate' if current_color == color else &'mask_color_deactivate'
 
 
-func reset_masks() -> void:
+func remove_mask() -> void:
 	current_color = MASK_COLOR.NONE
 
 
@@ -75,6 +75,7 @@ func toggle(color: MASK_COLOR) -> void:
 		current_color = color
 
 
+# Used to reset the state of collected masks
 func reset_mask_state(skip_tutorial: bool = false) -> void:
 	for mask in masks:
 		masks[mask] = false
