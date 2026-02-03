@@ -26,10 +26,9 @@ buses/default_bus_layout="uid://bbxij0qlpsswv"
 
 [autoload]
 
+MusicManager="*uid://cr2jnr1pf8hxj"
 MaskManager="*res://scripts/managers/mask_manager.gd"
 SoundManager="*uid://byhkybclyevsp"
-GamestateManager="*uid://cykvr2plu64op"
-MusicManager="*uid://cr2jnr1pf8hxj"
 
 [display]
 
