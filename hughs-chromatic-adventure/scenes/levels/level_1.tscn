@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bbvot6xuyplai"]
 
+[ext_resource type="Script" uid="uid://c3smq8ryg1cmj" path="res://scripts/levels/level.gd" id="1_oc4kc"]
 [ext_resource type="TileSet" uid="uid://c3ahxwk4knacy" path="res://resources/black_tileset.tres" id="1_s8va5"]
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="5_6761a"]
 [ext_resource type="Script" uid="uid://corf4nu7yt3bb" path="res://scripts/levels/tilemap_toggle.gd" id="5_sk5k4"]
@@ -8,6 +9,8 @@
 [ext_resource type="TileSet" uid="uid://31uv7267uwx8" path="res://resources/red_tileset.tres" id="7_dga24"]
 
 [node name="Level1" type="Node2D" unique_id=2052008603]
+script = ExtResource("1_oc4kc")
+next_scene = "uid://dmqwm1whvogj4"
 
 [node name="RedMask" parent="." unique_id=809340932 instance=ExtResource("6_oc4kc")]
 position = Vector2(463, 190)
