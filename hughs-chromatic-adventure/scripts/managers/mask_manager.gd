@@ -10,20 +10,25 @@ enum MASK_COLOR {
 }
 
 
+# Keeps track of the masks the player has collected
 var masks: Dictionary[MASK_COLOR, bool] = {
-	MASK_COLOR.NONE: false,
 	MASK_COLOR.RED: false,
 	MASK_COLOR.GREEN: false,
 	MASK_COLOR.BLUE: false,
 }
 
+# Getter functions for checking if certain colored mask is on
 
 var is_red_on: bool:
 	get:
 		return current_color == MASK_COLOR.RED
+
+
 var is_blue_on: bool:
 	get:
 		return current_color == MASK_COLOR.BLUE
+
+
 var is_green_on: bool:
 	get:
 		return current_color == MASK_COLOR.GREEN
@@ -35,6 +40,7 @@ var current_color: MASK_COLOR: set = _on_current_color_changed
 func _on_current_color_changed(new_value):
 	if current_color == new_value:
 		return
+
 	current_color = new_value
 	get_tree().call_group(&'red_things', _get_function_for_color(MASK_COLOR.RED))
 	get_tree().call_group(&'green_things', _get_function_for_color(MASK_COLOR.GREEN))
@@ -55,10 +61,7 @@ func _on_current_color_changed(new_value):
 
 
 func _get_function_for_color(color: MASK_COLOR) -> StringName:
-	if current_color == color:
-		return &'mask_color_activate'
-	else:
-		return &'mask_color_deactivate'
+	return &'mask_color_activate' if current_color == color else &'mask_color_deactivate'
 
 
 func reset_masks() -> void:
