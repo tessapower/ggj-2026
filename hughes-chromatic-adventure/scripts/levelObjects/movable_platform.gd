@@ -12,10 +12,15 @@ func _ready() -> void:
 	_make_animation_unique()
 	_setup_movement_animation()
 
-	if randomize_start_direction and animation_player:
-		# Randomly start at beginning (0.0) or end (1.0) of animation
-		# to make platforms start moving in opposite directions
-		animation_player.seek(randf(), true)
+	if randomize_start_direction and animation_player and animation_player.has_animation("move"):
+		# Randomly start at beginning (0.0) or end (move_time) of animation
+		# and flip playback_speed so platforms start moving in opposite directions
+		if randf() < 0.5:
+			animation_player.seek(0.0, true)
+			animation_player.playback_speed = abs(animation_player.playback_speed)
+		else:
+			animation_player.seek(move_time, true)
+			animation_player.playback_speed = -abs(animation_player.playback_speed)
 
 
 func _make_animation_unique() -> void:
