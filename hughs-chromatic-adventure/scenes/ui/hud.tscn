@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://csne404eoiq7a"]
+
+[ext_resource type="Script" uid="uid://ckefhdg7yepoe" path="res://scripts/ui/hud.gd" id="1_hqnrr"]
+[ext_resource type="Texture2D" uid="uid://b8pscpv0ncf1n" path="res://resources/red_mask.tres" id="2_8qguk"]
+[ext_resource type="Texture2D" uid="uid://cspqnlb14805g" path="res://resources/green_mask.tres" id="3_8qguk"]
+[ext_resource type="Texture2D" uid="uid://cce5twbwjsuha" path="res://resources/blue_mask.tres" id="4_136eg"]
+
+[node name="Hud" type="CanvasLayer" unique_id=886244124]
+layer = 3
+script = ExtResource("1_hqnrr")
+
+[node name="Content" type="MarginContainer" parent="." unique_id=340261600]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Masks" type="HBoxContainer" parent="Content" unique_id=729633973]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="RedMask" type="TextureRect" parent="Content/Masks" unique_id=1522735307]
+layout_mode = 2
+texture = ExtResource("2_8qguk")
+stretch_mode = 4
+
+[node name="GreenMask" type="TextureRect" parent="Content/Masks" unique_id=558827608]
+layout_mode = 2
+texture = ExtResource("3_8qguk")
+stretch_mode = 4
+
+[node name="BlueMask" type="TextureRect" parent="Content/Masks" unique_id=404889535]
+layout_mode = 2
+texture = ExtResource("4_136eg")
+stretch_mode = 4
