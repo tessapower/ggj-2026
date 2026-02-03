@@ -1,4 +1,4 @@
-class_name MusicManager extends Node
+extends Node
 
 const mute_db := -80.0
 const default_music_db := 0.0
