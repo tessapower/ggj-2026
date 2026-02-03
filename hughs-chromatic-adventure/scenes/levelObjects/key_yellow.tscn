@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8ig0"]
 size = Vector2(13, 9)
 
-[node name="YellowKey" type="Area2D" unique_id=315066947]
+[node name="YellowKey" type="Area2D" unique_id=315066947 groups=["keys"]]
 collision_mask = 16
 script = ExtResource("1_l2np2")
 color = "Yellow"
