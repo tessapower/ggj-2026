@@ -45,9 +45,9 @@ position = Vector2(-103, 82)
 [node name="Goal" parent="." unique_id=207536555 instance=ExtResource("8_8qukl")]
 position = Vector2(-106, 30)
 
-[node name="YellowDoor" parent="." unique_id=363789188 instance=ExtResource("9_qsp8v")]
-position = Vector2(0, 30)
-scale = Vector2(-1, 1)
+[node name="YellowDoor" parent="." unique_id=851773877 instance=ExtResource("9_qsp8v")]
+position = Vector2(1, 30)
+rotation = 3.1415927
 
 [node name="YellowKey" parent="." unique_id=339388337 instance=ExtResource("10_nt80m")]
 position = Vector2(435, 80)

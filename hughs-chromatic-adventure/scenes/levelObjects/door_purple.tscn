@@ -9,7 +9,7 @@ size = Vector2(10, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06a3q"]
 size = Vector2(5, 28)
 
-[node name="PurpleDoor" type="StaticBody2D" unique_id=851773877]
+[node name="PurpleDoor" type="StaticBody2D" unique_id=851773877 groups=["doors"]]
 z_index = -1
 collision_layer = 17
 collision_mask = 16
