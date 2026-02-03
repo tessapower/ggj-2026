@@ -3,7 +3,7 @@ extends Node
 const mute_db := -80.0
 const default_music_db := 0.0
 const track_fade_time := 2.0
-const sync_fade_time := 0.5
+const sync_fade_time := 0.3
 const lpf_resonance_time := 0.2
 
 var current_music_player : AudioStreamPlayer
