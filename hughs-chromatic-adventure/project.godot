@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Hugh's Chromatic Adventure"
 config/description="A delightful platformer game, where you help Hugh the penguin navigate puzzling levels using colored masks."
-run/main_scene="uid://cr2jnr1pf8hxj"
+run/main_scene="uid://qrhju8j4q7de"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -26,9 +26,10 @@ buses/default_bus_layout="uid://bbxij0qlpsswv"
 
 [autoload]
 
+MusicManager="*uid://cr2jnr1pf8hxj"
 MaskManager="*res://scripts/managers/mask_manager.gd"
 SoundManager="*uid://byhkybclyevsp"
-GamestateManager="*uid://cykvr2plu64op"
+TransitionManager="*uid://devmuqja3i3y5"
 
 [display]
 

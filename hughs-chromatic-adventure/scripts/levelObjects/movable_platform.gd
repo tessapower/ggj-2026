@@ -9,24 +9,25 @@ extends Node2D
 
 
 func _ready() -> void:
+	if not animation_player:
+		push_error("AnimationPlayer node not found!")
+		return
+
 	_make_animation_unique()
 	_setup_movement_animation()
 
-	if randomize_start_direction and animation_player and animation_player.has_animation("move"):
+	if randomize_start_direction and animation_player.has_animation("move"):
 		# Randomly start at beginning (0.0) or end (move_time) of animation
 		# and flip playback_speed so platforms start moving in opposite directions
 		if randf() < 0.5:
 			animation_player.seek(0.0, true)
-			animation_player.playback_speed = abs(animation_player.playback_speed)
+			animation_player.speed_scale = abs(animation_player.speed_scale)
 		else:
 			animation_player.seek(move_time, true)
-			animation_player.playback_speed = -abs(animation_player.playback_speed)
+			animation_player.speed_scale = -abs(animation_player.speed_scale)
 
 
 func _make_animation_unique() -> void:
-	if not animation_player:
-		return
-
 	# Get the animation library
 	var lib = animation_player.get_animation_library("")
 	if not lib:
@@ -47,7 +48,7 @@ func _make_animation_unique() -> void:
 
 
 func _setup_movement_animation() -> void:
-	if not animation_player or not animation_player.has_animation("move"):
+	if not animation_player.has_animation("move"):
 		return
 
 	var animation = animation_player.get_animation("move")

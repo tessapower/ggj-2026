@@ -1,4 +1,4 @@
-class_name MusicManager extends Node
+extends Node
 
 const mute_db := -80.0
 const default_music_db := 0.0
@@ -8,9 +8,9 @@ const lpf_resonance_time := 0.2
 
 var current_music_player : AudioStreamPlayer
 
-
 @onready var audio_stream_01 : AudioStreamPlayer = $AudioStreamPlayer1
 @onready var audio_stream_02 : AudioStreamPlayer = $AudioStreamPlayer2
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

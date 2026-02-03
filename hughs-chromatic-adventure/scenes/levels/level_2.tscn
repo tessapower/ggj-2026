@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dmqwm1whvogj4"]
 
 [ext_resource type="PackedScene" uid="uid://cutmlppckah7o" path="res://scenes/levelObjects/checkpoint.tscn" id="1_8qukl"]
+[ext_resource type="Script" uid="uid://c3smq8ryg1cmj" path="res://scripts/levels/level.gd" id="1_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://yawj0i8uxm7d" path="res://scenes/masks/green_mask.tscn" id="2_8qukl"]
 [ext_resource type="TileSet" uid="uid://dch1canegh3yt" path="res://resources/green_tileset.tres" id="4_3p04p"]
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="5_3p04p"]
@@ -14,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://ccjtnr1x2hi7k" path="res://scenes/levelObjects/movable_platform_red.tscn" id="12_tv7cl"]
 
 [node name="Level2" type="Node2D" unique_id=1565228703]
+script = ExtResource("1_tv7cl")
+next_scene = "uid://b13r1irqeg4q"
 
 [node name="Checkpoint" parent="." unique_id=315066947 instance=ExtResource("1_8qukl")]
 position = Vector2(547, -9)
