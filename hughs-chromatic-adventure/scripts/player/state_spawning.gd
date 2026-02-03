@@ -5,7 +5,7 @@ extends State
 @export var sprite: AnimatedSprite2D
 
 
-var spawn_sound = load('res://assets/sfx/spawn_1.wav')
+var spawn_sound = load('res://assets/sfx/spawn_2.wav')
 
 func _ready() -> void:
 	if !player:

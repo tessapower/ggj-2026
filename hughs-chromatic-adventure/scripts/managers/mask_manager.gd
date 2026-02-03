@@ -9,6 +9,8 @@ enum MASK_COLOR {
 	GREEN,
 }
 
+var mask_switch_sound = load("res://assets/sfx/switch_color_stream_randomizer.tres")
+
 
 # Keeps track of the masks the player has collected
 var masks: Dictionary[MASK_COLOR, bool] = {
@@ -45,6 +47,9 @@ func _on_current_color_changed(new_value):
 	get_tree().call_group(&'red_things', _get_function_for_color(MASK_COLOR.RED))
 	get_tree().call_group(&'green_things', _get_function_for_color(MASK_COLOR.GREEN))
 	get_tree().call_group(&'blue_things', _get_function_for_color(MASK_COLOR.BLUE))
+	
+	# Play switch sound
+	SoundManager.play_sound(mask_switch_sound, "SFX")
 
 	# Update the music playing to match the mask color
 	match current_color:
