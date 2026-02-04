@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://bx5weniyy473f"]
+
+[ext_resource type="AudioStream" uid="uid://bdymiycybye0k" path="res://assets/sfx/switch_color_1.wav" id="1_mfrci"]
+
+[resource]
+random_pitch = 1.3182129
+streams_count = 1
+stream_0/stream = ExtResource("1_mfrci")
