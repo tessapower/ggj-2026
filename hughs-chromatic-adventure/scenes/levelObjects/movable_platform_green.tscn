@@ -43,6 +43,7 @@ _data = {
 }
 
 [node name="GreenMovablePlatform" type="Node2D" unique_id=598591550]
+z_index = 1
 script = ExtResource("1_gme3c")
 
 [node name="Platform" type="TileMapLayer" parent="." unique_id=1500882373 groups=["green_things"]]
