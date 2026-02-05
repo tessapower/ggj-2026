@@ -381,6 +381,7 @@ size = Vector2(14, 14)
 blend_mode = 3
 
 [node name="Player" type="CharacterBody2D" unique_id=1253675667]
+z_index = 2
 collision_layer = 16
 collision_mask = 15
 script = ExtResource("1_dovo2")
