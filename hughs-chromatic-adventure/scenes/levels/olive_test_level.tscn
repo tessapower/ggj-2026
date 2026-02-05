@@ -1,0 +1,135 @@
+[gd_scene format=4 uid="uid://duutslphsj0f5"]
+
+[ext_resource type="Script" uid="uid://ekf2t7s7rr" path="res://scripts/levels/olive_test_level.gd" id="1_ih5of"]
+[ext_resource type="TileSet" uid="uid://c3ahxwk4knacy" path="res://resources/black_tileset.tres" id="1_rjxbj"]
+[ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="2_a0eud"]
+[ext_resource type="TileSet" uid="uid://31uv7267uwx8" path="res://resources/red_tileset.tres" id="2_l4sdt"]
+[ext_resource type="TileSet" uid="uid://dch1canegh3yt" path="res://resources/green_tileset.tres" id="3_ih5of"]
+[ext_resource type="Script" uid="uid://corf4nu7yt3bb" path="res://scripts/levels/tilemap_toggle.gd" id="4_obv73"]
+[ext_resource type="Script" uid="uid://chikj8x6phpnp" path="res://scripts/olive stuff/olive_follow.gd" id="6_y5621"]
+
+[sub_resource type="Curve2D" id="Curve2D_l4sdt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 240, -210)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_obv73"]
+_data = {
+"points": PackedVector2Array(0, 0, 30, 0, 0, 45, 0, 30, 0, -30, 60, -15, 30, 0, -30, 0, 0, -75, 0, -30, 0, 30, -60, -15, -30, 0, 0, 0, 0, 45)
+}
+point_count = 5
+
+[node name="OliveTestLevel" type="Node2D" unique_id=965985472]
+script = ExtResource("1_ih5of")
+
+[node name="Black" type="TileMapLayer" parent="." unique_id=1409218560]
+tile_map_data = PackedByteArray("AAD+/wAAAAAIAAAAAAD//wAAAAALAAAAAAABAAAAAAAIAAAAAAACAAAAAAAKAAAAAAADAAAAAAALAAAAAAAFAAAAAAAIAAAAAAAGAAAAAAAKAAAAAAAHAAAAAAAKAAAAAAAIAAAAAAAKAAAAAAAJAAAAAAAKAAAAAAAKAAAAAAAKAAAAAAALAAAAAAAKAAAAAAAMAAAAAAAKAAAAAAANAAAAAAAKAAAAAAAOAAAAAAAKAAAAAAAPAAAAAAAKAAAAAAAQAAAAAAAKAAAAAAARAAAAAAAKAAAAAAASAAAAAAAKAAAAAAATAAAAAAAKAAAAAAAUAAAAAAAKAAAAAAAVAAAAAAAFAAEAAAAVAPL/AAAIAAAAAAAVAPP/AAAIAAEAAAAVAPT/AAAIAAEAAAAVAPX/AAAIAAEAAAAVAPb/AAAIAAEAAAAVAPf/AAAIAAEAAAAVAPj/AAAIAAEAAAAVAPn/AAAIAAEAAAAVAPr/AAAIAAEAAAAVAPv/AAAIAAEAAAAVAPz/AAAIAAEAAAAVAP3/AAAIAAEAAAAVAP7/AAAIAAEAAAAVAP//AAAIAAEAAAAWAP//AAALAAIAAAAWAP7/AAALAAIAAAAWAP3/AAALAAIAAAAWAPz/AAALAAIAAAAWAPv/AAALAAIAAAAWAPr/AAALAAIAAAAWAPn/AAALAAIAAAAWAPj/AAALAAIAAAAWAPf/AAALAAIAAAAWAPb/AAALAAIAAAAWAPX/AAALAAIAAAAWAPT/AAALAAIAAAAWAPP/AAALAAIAAAAWAPL/AAALAAAAAAAWAAAAAAALAAIAAAAWAAEAAAALAAMAAAAVAAEAAAAJAAMAAAAUAAEAAAAJAAMAAAATAAEAAAAJAAMAAAASAAEAAAAJAAMAAAARAAEAAAAJAAMAAAAQAAEAAAAJAAMAAAAPAAEAAAAJAAMAAAAOAAEAAAAJAAMAAAANAAEAAAAJAAMAAAAMAAEAAAAJAAMAAAALAAEAAAAJAAMAAAAKAAEAAAAJAAMAAAAJAAEAAAAJAAMAAAAIAAEAAAAJAAMAAAAHAAEAAAAJAAMAAAAGAAEAAAAJAAMAAAAFAAEAAAAFAAMAAAAEAAEAAAACAAMAAAADAAEAAAAGAAMAAAACAAEAAAAJAAMAAAABAAEAAAAFAAMAAAAAAAEAAAACAAMAAAD//wEAAAAGAAMAAAD+/wEAAAAIAAMAAAA=")
+tile_set = ExtResource("1_rjxbj")
+
+[node name="Red" type="TileMapLayer" parent="." unique_id=2121140603 groups=["red_things"]]
+tile_set = ExtResource("2_l4sdt")
+script = ExtResource("4_obv73")
+
+[node name="Green" type="TileMapLayer" parent="." unique_id=1454049614 groups=["green_things"]]
+tile_map_data = PackedByteArray("AAAPAP3/AAACAAMAAAAQAP3/AAACAAMAAAARAP3/AAADAAMAAAARAPr/AAABAAMAAAASAPr/AAACAAMAAAATAPr/AAACAAMAAAAUAPr/AAADAAMAAAAOAP3/AAABAAMAAAARAPf/AAADAAMAAAAQAPf/AAACAAMAAAAPAPf/AAACAAMAAAAOAPf/AAABAAMAAAARAPT/AAABAAMAAAASAPT/AAACAAMAAAATAPT/AAACAAMAAAAUAPT/AAADAAMAAAA=")
+tile_set = ExtResource("3_ih5of")
+script = ExtResource("4_obv73")
+
+[node name="Player" parent="." unique_id=1253675667 instance=ExtResource("2_a0eud")]
+position = Vector2(47, -74)
+
+[node name="Line" type="Path2D" parent="." unique_id=1560679103]
+curve = SubResource("Curve2D_l4sdt")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Line" unique_id=1488377560]
+rotates = false
+loop = false
+script = ExtResource("6_y5621")
+max_speed = 60.0
+end_pause = 1.0
+
+[node name="Black" type="TileMapLayer" parent="Line/PathFollow2D" unique_id=187413891]
+tile_map_data = PackedByteArray("AAAAAP//AAABAAMAAAABAP//AAACAAMAAAACAP//AAACAAMAAAADAP//AAACAAMAAAAEAP//AAADAAMAAAA=")
+tile_set = ExtResource("1_rjxbj")
+use_kinematic_bodies = true
+
+[node name="Red" type="TileMapLayer" parent="Line/PathFollow2D" unique_id=1113370211 groups=["red_things"]]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAMAAAAEAAAAAAAAAAMAAAAAAP7/AAAPAAEAAAAEAP7/AAAPAAEAAAA=")
+tile_set = ExtResource("2_l4sdt")
+use_kinematic_bodies = true
+script = ExtResource("4_obv73")
+
+[node name="Green" type="TileMapLayer" parent="Line/PathFollow2D" unique_id=1673247398 groups=["green_things"]]
+tile_set = ExtResource("3_ih5of")
+use_kinematic_bodies = true
+script = ExtResource("4_obv73")
+
+[node name="Circle" type="Path2D" parent="." unique_id=563223694]
+position = Vector2(165, -45)
+curve = SubResource("Curve2D_obv73")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Circle" unique_id=992022437]
+position = Vector2(0, 45)
+rotates = false
+script = ExtResource("6_y5621")
+max_speed = 30.0
+
+[node name="Black" type="TileMapLayer" parent="Circle/PathFollow2D" unique_id=1344573063]
+tile_set = ExtResource("1_rjxbj")
+use_kinematic_bodies = true
+
+[node name="Red" type="TileMapLayer" parent="Circle/PathFollow2D" unique_id=1403474783 groups=["red_things"]]
+tile_set = ExtResource("2_l4sdt")
+use_kinematic_bodies = true
+script = ExtResource("4_obv73")
+
+[node name="Green" type="TileMapLayer" parent="Circle/PathFollow2D" unique_id=1491355196 groups=["green_things"]]
+tile_map_data = PackedByteArray("AAD+/wAAAAABAAMAAAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAA=")
+tile_set = ExtResource("3_ih5of")
+use_kinematic_bodies = true
+script = ExtResource("4_obv73")
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Circle" unique_id=1107444866]
+position = Vector2(50.92759, -44.18079)
+progress = 123.88444
+rotates = false
+script = ExtResource("6_y5621")
+max_speed = 30.0
+
+[node name="Black" type="TileMapLayer" parent="Circle/PathFollow2D2" unique_id=1696910410]
+tile_set = ExtResource("1_rjxbj")
+use_kinematic_bodies = true
+
+[node name="Red" type="TileMapLayer" parent="Circle/PathFollow2D2" unique_id=799591844 groups=["red_things"]]
+tile_set = ExtResource("2_l4sdt")
+use_kinematic_bodies = true
+script = ExtResource("4_obv73")
+
+[node name="Green" type="TileMapLayer" parent="Circle/PathFollow2D2" unique_id=1849988767 groups=["green_things"]]
+tile_map_data = PackedByteArray("AAD+/wAAAAABAAMAAAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAA=")
+tile_set = ExtResource("3_ih5of")
+use_kinematic_bodies = true
+script = ExtResource("4_obv73")
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Circle" unique_id=552980815]
+position = Vector2(-50.927597, -44.18078)
+progress = 247.80605
+rotates = false
+script = ExtResource("6_y5621")
+max_speed = 30.0
+
+[node name="Black" type="TileMapLayer" parent="Circle/PathFollow2D3" unique_id=657237319]
+tile_set = ExtResource("1_rjxbj")
+use_kinematic_bodies = true
+
+[node name="Red" type="TileMapLayer" parent="Circle/PathFollow2D3" unique_id=712528111 groups=["red_things"]]
+tile_set = ExtResource("2_l4sdt")
+use_kinematic_bodies = true
+script = ExtResource("4_obv73")
+
+[node name="Green" type="TileMapLayer" parent="Circle/PathFollow2D3" unique_id=539503986 groups=["green_things"]]
+tile_map_data = PackedByteArray("AAD+/wAAAAABAAMAAAD//wAAAAACAAMAAAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAA=")
+tile_set = ExtResource("3_ih5of")
+use_kinematic_bodies = true
+script = ExtResource("4_obv73")

@@ -33,13 +33,12 @@ TransitionManager="*uid://devmuqja3i3y5"
 
 [display]
 
-window/size/viewport_width=480
-window/size/viewport_height=270
+window/size/viewport_width=960
+window/size/viewport_height=540
 window/size/resizable=false
 window/size/maximize_disabled=true
-window/size/window_width_override=960
-window/size/window_height_override=540
 window/stretch/mode="viewport"
+window/stretch/scale=2.0
 window/stretch/scale_mode="integer"
 
 [editor_plugins]
