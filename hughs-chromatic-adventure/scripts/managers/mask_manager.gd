@@ -1,6 +1,7 @@
 extends Node
 
-signal mask_changed()
+signal mask_changed(new_color: MASK_COLOR)
+signal mask_collected(new_color: MASK_COLOR)
 
 enum MASK_COLOR {
 	NONE,
@@ -39,11 +40,11 @@ var is_green_on: bool:
 var current_color: MASK_COLOR: set = _on_current_color_changed
 
 
-func _on_current_color_changed(new_value):
-	if current_color == new_value:
+func _on_current_color_changed(new_color):
+	if current_color == new_color:
 		return
 
-	current_color = new_value
+	current_color = new_color
 	get_tree().call_group(&'red_things', _get_function_for_color(MASK_COLOR.RED))
 	get_tree().call_group(&'green_things', _get_function_for_color(MASK_COLOR.GREEN))
 	get_tree().call_group(&'blue_things', _get_function_for_color(MASK_COLOR.BLUE))
@@ -62,7 +63,7 @@ func _on_current_color_changed(new_value):
 		MASK_COLOR.BLUE:
 			MusicManager.crossfade_sync_stream([0, 3])
 
-	mask_changed.emit()
+	mask_changed.emit(current_color)
 
 
 func _get_function_for_color(color: MASK_COLOR) -> StringName:
@@ -91,6 +92,7 @@ func reset_mask_state(skip_tutorial: bool = false) -> void:
 
 func enable_mask_color(color: MASK_COLOR) -> void:
 	masks[color] = true
+	emit_signal("mask_collected", color)
 
 
 func _unhandled_input(event: InputEvent) -> void:
