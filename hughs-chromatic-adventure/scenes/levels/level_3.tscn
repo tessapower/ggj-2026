@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3smq8ryg1cmj" path="res://scripts/levels/level.gd" id="1_0ljxa"]
 [ext_resource type="TileSet" uid="uid://c3ahxwk4knacy" path="res://resources/black_tileset.tres" id="1_44gv1"]
 [ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="2_0ljxa"]
+[ext_resource type="Theme" uid="uid://bgd1fxsi6v0cq" path="res://resources/default_ui_theme.tres" id="3_0qepi"]
 
 [node name="Level3" type="Node2D" unique_id=1643854390]
 script = ExtResource("1_0ljxa")
@@ -14,6 +15,7 @@ tile_set = ExtResource("1_44gv1")
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=974305829]
 offset_right = 358.0
 offset_bottom = 224.0
+theme = ExtResource("3_0qepi")
 theme_override_colors/default_color = Color(0.23, 0.23, 0.23, 1)
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
