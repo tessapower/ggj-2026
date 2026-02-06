@@ -3,6 +3,21 @@
 [ext_resource type="Theme" uid="uid://bgd1fxsi6v0cq" path="res://resources/default_ui_theme.tres" id="1_ovrgc"]
 [ext_resource type="Script" uid="uid://ctdufkxxcr4r4" path="res://scripts/menus/main_menu.gd" id="1_xqga4"]
 
+[sub_resource type="Gradient" id="Gradient_ovrgc"]
+offsets = PackedFloat32Array(0, 0.9249292)
+colors = PackedColorArray(0, 0.68, 0.6573334, 1, 0.069333345, 0, 0.32, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2o76q"]
+gradient = SubResource("Gradient_ovrgc")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6bivr"]
+texture = SubResource("GradientTexture2D_2o76q")
+
 [node name="MainMenu" type="Control" unique_id=740534129]
 layout_mode = 3
 anchors_preset = 15
@@ -22,22 +37,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6bivr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=2041086269]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer" unique_id=68082249]
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=2044995837]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer/MarginContainer2" unique_id=68082249]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/CenterContainer" unique_id=501404962]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/MarginContainer2/CenterContainer" unique_id=501404962]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[rainbow freq=.1 sat=1 val=1 speed=0][wave]Hugh's Chromatic Adventure[/wave][/rainbow]"
+text = "[rainbow freq=.1 sat=1 val=1 speed=0][wave]Hugh's
+    Chromatic
+        Adventure[/wave][/rainbow]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+shortcut_keys_enabled = false
+vertical_alignment = 1
+justification_flags = 2
+meta_underlined = false
+hint_underlined = false
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=1175262454]
 layout_mode = 2
