@@ -31,3 +31,7 @@ For developers working on this project, see [ARCHITECTURE.md](./ARCHITECTURE.md)
 ## Screenshots (TODO)
 
 - [ ] Add screenshots
+
+## Credits
+
+- The font BoldPixels appears courtesy of Yukipixels: <https://yukipixels.itch.io/boldpixels>
