@@ -1,43 +1,63 @@
 [gd_scene format=3 uid="uid://qrhju8j4q7de"]
 
+[ext_resource type="Theme" uid="uid://bgd1fxsi6v0cq" path="res://resources/default_ui_theme.tres" id="1_ovrgc"]
 [ext_resource type="Script" uid="uid://ctdufkxxcr4r4" path="res://scripts/menus/main_menu.gd" id="1_xqga4"]
 
 [node name="MainMenu" type="Control" unique_id=740534129]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("1_ovrgc")
 script = ExtResource("1_xqga4")
 level_1 = "uid://bbvot6xuyplai"
 
-[node name="Buttons" type="VBoxContainer" parent="." unique_id=708632234]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1205134253]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -33.0
-offset_right = 50.0
-offset_bottom = 33.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
-[node name="Play" type="Button" parent="Buttons" unique_id=1883494917]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=2041086269]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer" unique_id=68082249]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/CenterContainer" unique_id=501404962]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[rainbow freq=.1 sat=1 val=1 speed=0][wave]Hugh's Chromatic Adventure[/wave][/rainbow]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=1175262454]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 32
+
+[node name="Buttons" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer" unique_id=708632234]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="Play" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/Buttons" unique_id=1883494917]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "PLAY"
 
-[node name="Exit" type="Button" parent="Buttons" unique_id=115517391]
+[node name="Exit" type="Button" parent="PanelContainer/VBoxContainer/MarginContainer/Buttons" unique_id=115517391]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -45,6 +65,7 @@ size_flags_vertical = 4
 text = "EXIT"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1447625457]
+visible = false
 
-[connection signal="pressed" from="Buttons/Play" to="." method="_on_play"]
-[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/Buttons/Play" to="." method="_on_play"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MarginContainer/Buttons/Exit" to="." method="_on_exit"]
